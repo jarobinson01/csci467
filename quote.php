@@ -7,8 +7,15 @@
     $success = $prepared->execute();
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    $r = 0;
     echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
     foreach($rows as $row){
+        $sql = "SELECT * FROM Quote WHERE id = ".$row['item_id'].";";
+        $prepared = $db1->prepare($sql);
+        $success = $prepared->execute();
+        $lineItem = $prepared->fetchALL(PDO::FETCH_ASSOC);
+        $price = $lineItem[0]['item_price'];
+
         echo '<tr>';
         echo '<td> ---  Item ID: '.$row['item_id'].'</td>';
         echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
