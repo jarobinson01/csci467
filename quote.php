@@ -13,9 +13,9 @@
         $sql = "SELECT * FROM Quote WHERE id = ".$row['item_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
-        $lineItem = $prepared->fetchALL(PDO::FETCH_ROW);
-        $price = $lineItem[0]['price'];
-
+        $lineItem = $prepared->fetchALL();
+        //$price = $lineItem[0]['price'];
+        echo $lineItem;
         echo '<tr>';
         echo '<td> ---  Item ID: '.$row['item_id'].'</td>';
         echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
