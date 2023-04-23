@@ -9,10 +9,10 @@
     foreach($rows as $row){
         echo '<tr>';
         echo '<td>'.$row['id'].'</td>';
-        echo '<td> -    '.$row['customer'].'</td>';
+        echo '<td> -    Cutsomter" '.$row['customer'].'</td>';
         echo '<td> ---  Commission: $'.$row['price'].'</td>';
-        echo '<td> ---  Customer Email: $'.$row['customerEmail'].'</td>';
-        echo '<td> ---  Quote Status: $'.$row['status'].'</td>';
+        echo '<td> ---  Customer Email: '.$row['customerEmail'].'</td>';
+        echo '<td> ---  Quote Status: '.$row['status'].'</td>';
         echo '</tr>';
         echo ' ---- ';
         echo '<button>Edit</button>';

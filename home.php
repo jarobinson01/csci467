@@ -52,7 +52,6 @@
         echo "<form action=\"index.php\" method=\"post\">";
             echo "<button type=\"submit\">Back to Login</button>";
         echo "</form>";
-        header("Location: hq.php");
     }
     if ($associate){
         echo "You have associate privleges!<br/>";
@@ -65,6 +64,7 @@
     if ($hq){
         echo "You have hq privleges!<br/>";
         include('hq.php');
+        header("Location: hq.php");
     }
 
 ?>
