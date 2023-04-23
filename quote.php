@@ -8,6 +8,7 @@
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     foreach($rows as $row){
+        echo '<form action=hq.php method=POST><button>BACK</button></form>';
         echo '<tr>';
         echo '<td>'.$row['id'].'</td>';
         echo '<td> -    Cutsomter '.$row['customer'].'</td>';
