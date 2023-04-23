@@ -14,7 +14,7 @@
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetchALL(PDO::FETCH_ASSOC);
-        $price = $lineItem[0]['item_price'];
+        $price = $lineItem[0]['price'];
 
         echo '<tr>';
         echo '<td> ---  Item ID: '.$row['item_id'].'</td>';
