@@ -13,7 +13,7 @@
         $sql = "SELECT * FROM Quote WHERE id = ".$row['item_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
-        $lineItem = $prepared->fetchALL(PDO::FETCHALL);
+        $lineItem = $prepared->fetchALL(PDO::FETCH_ASSOC);
         $price = $lineItem['price'];
 
         echo '<tr>';
