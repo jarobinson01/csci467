@@ -1,6 +1,5 @@
 <?php
     include('config.php');
-    echo '<form action=hq.php method=POST><button>BACK</button></form>';
 
     $sql = "SELECT * FROM Quote_Item";
     $prepared = $db1->prepare($sql);
@@ -9,6 +8,7 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     $r = 0;
     echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
+    echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row){
         $sql = "SELECT * FROM Quote WHERE id = ".$row['item_id'].";";
         $prepared = $db1->prepare($sql);
@@ -17,6 +17,7 @@
         $text = implode(" ", $lineItem);
         //$price = $lineItem[0]['price'];
         echo $text;
+        
         echo '<tr>';
         echo '<td> ---  Item ID: '.$row['item_id'].'</td>';
         echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
