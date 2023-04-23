@@ -17,9 +17,10 @@
         $price = $lineItem['price'];
 
         echo '<tr>';
+        echo '<td>Quote ID: '.$row['quote_id'].'</td>';
         echo '<td>Item ID: '.$row['item_id'].'</td>';
         echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
-        echo '<td> ---  Price: '.$row['quantity']*$price.'</td>';
+        echo '<td> ---  Price: $'.$row['quantity']*$price.'</td>';
         echo '</tr>';
         echo ' ---- ';
         echo '<button onClick="document.location.href=\'quote.php\'">Edit</button>';
