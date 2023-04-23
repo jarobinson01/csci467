@@ -1,4 +1,5 @@
 <?php
+    include('config.php');
     echo '<h1>HQ</h1>';
 
     $sql = "SELECT * FROM Quote";
@@ -9,7 +10,7 @@
     foreach($rows as $row){
         echo '<tr>';
         echo '<td>'.$row['id'].'</td>';
-        echo '<td> -    Cutsomter" '.$row['customer'].'</td>';
+        echo '<td> -    Cutsomter '.$row['customer'].'</td>';
         echo '<td> ---  Commission: $'.$row['price'].'</td>';
         echo '<td> ---  Customer Email: '.$row['customerEmail'].'</td>';
         echo '<td> ---  Quote Status: '.$row['status'].'</td>';
