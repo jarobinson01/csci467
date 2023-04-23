@@ -17,7 +17,7 @@
         $price = $lineItem['price'];
 
         echo '<tr>';
-        echo '<td> ---  Item ID: '.$row['item_id'].'</td>';
+        echo '<td>Item ID: '.$row['item_id'].'</td>';
         echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
         echo '<td> ---  Price: '.$row['quantity']*$price.'</td>';
         echo '</tr>';
