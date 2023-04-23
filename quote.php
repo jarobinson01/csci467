@@ -10,7 +10,7 @@
     echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
     foreach($rows as $row){
         echo '<tr>';
-        echo '<td> ---  Item ID: '.$row['price'].'</td>';
+        echo '<td> ---  Item ID: '.$row['item_id'].'</td>';
         echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
         echo '</tr>';
         echo ' ---- ';
