@@ -49,8 +49,8 @@
     }
     if (!$login){ //CHECK FOR LOGIN, THEN REDIRECT
         echo "Incorrect Login Information";
-        echo "<form action=\"login.php\" method=\"post\">";
-            echo "<button type=\"submit\"> Back to Login</button>";
+        echo "<form action=\"index.php\" method=\"post\">";
+            echo "<button type=\"submit\">Back to Login</button>";
         echo "</form>";
     }
     if ($associate){
