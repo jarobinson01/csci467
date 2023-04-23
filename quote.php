@@ -1,20 +1,17 @@
 <?php
     include('config.php');
-    echo '<h1>Quotes</h1>';
+    echo '<form action=hq.php method=POST><button>BACK</button></form>';
 
-    $sql = "SELECT * FROM Quote";
+    $sql = "SELECT * FROM Quote_Item";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
     foreach($rows as $row){
-        echo '<form action=hq.php method=POST><button>BACK</button></form>';
         echo '<tr>';
-        echo '<td>'.$row['id'].'</td>';
-        echo '<td> -    Cutsomter '.$row['customer'].'</td>';
-        echo '<td> ---  Commission: $'.$row['price'].'</td>';
-        echo '<td> ---  Customer Email: '.$row['customerEmail'].'</td>';
-        echo '<td> ---  Quote Status: '.$row['status'].'</td>';
+        echo '<td> ---  Item ID: '.$row['price'].'</td>';
+        echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
         echo '</tr>';
         echo ' ---- ';
         echo '<button onClick="document.location.href=\'quote.php\'">Edit</button>';
