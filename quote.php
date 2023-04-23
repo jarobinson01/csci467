@@ -16,7 +16,7 @@
         echo '<td> ---  Quote Status: '.$row['status'].'</td>';
         echo '</tr>';
         echo ' ---- ';
-        echo '<form action=quote.php><button>Edit</button></form>';
+        echo '<button onClick="document.location.href=\'quote.php\'">Edit</button>';
         echo '<button>Delete</button>';
         echo '</br>';
     }
