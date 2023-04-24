@@ -6,7 +6,7 @@
     $success = $prepared->execute();
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    $r = 0;
+    $total = 0;
     echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row){
@@ -15,6 +15,7 @@
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
         $price = $lineItem['price'];
+        $total += $row['quantity']*$price;
 
         echo '<tr>';
         echo '<td>Quote ID: '.$row['quote_id'].'</td>';
@@ -27,11 +28,13 @@
         echo '<button>Delete</button>';
         echo '</br>';
     }
+    echo '<hr>';
 
     echo '<br>';
     echo '<p><strong>Notes:</p>';
+    echo '<form>';
     echo '<textarea id="notes" rows="4" cols="50" maxlength="250"></textarea>';
+    echo "<input type='submit' name='save_quote' value='Submit'>"; //submit button
+    echo '</form>';
     echo '<br><br>';
-
-    echo '<button><a href="logout.php">Logout</a></button>';
 ?>
