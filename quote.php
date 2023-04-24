@@ -19,7 +19,7 @@
 <?php
     include('config.php');
 
-    $sql = "SELECT * FROM Quote_Item WHERE status = 'F'";
+    $sql = "SELECT * FROM Quote_Item";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
