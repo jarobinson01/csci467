@@ -41,8 +41,8 @@
         echo '<button>Delete</button>';
         echo '</br>';
     }
-    echo '<button onclick="showAddQuote()">Add Line Item</button>';
-    echo '<form id="addItem">';
+    echo '<button onclick="showAddItem()">Add Line Item</button>';
+    echo '<form id="addItem" style="display: none;">';
     echo '<button>Add Item</button>';
     echo '</form>';
 
