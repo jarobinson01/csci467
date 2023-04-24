@@ -30,8 +30,8 @@
 
     echo '<br>';
     echo '<p><strong>Notes:</p>';
-    echo '<textarea id="notes" rows="4" cols="50"></textarea>';
-    echo '<br>';
+    echo '<textarea id="notes" rows="4" cols="50" maxlength="250"></textarea>';
+    echo '<br><br>';
 
     echo '<button><a href="logout.php">Logout</a></button>';
 ?>
