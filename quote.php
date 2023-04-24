@@ -48,18 +48,9 @@
         echo '<button>Delete</button>';
         echo '</br>';
     }
-    
-    function addItem() {
-        $sql = "INSERT INTO Item (price) VALUES ('".$_POST['price']."');";
-        $prepared = $db1->prepare($sql);
-        $success = $prepared->execute();
 
-        $sql = "INSERT INTO Quote_Item (quote_id, price) VALUES ('".$id."', '".$_POST['item_id']."', '".$_POST['price']."');";
-        $prepared = $db1->prepare($sql);
-        $success = $prepared->execute();
-    }
-
-    echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
+    echo '<button id="newItem" onclick="add_item.php
+    ">New Item</button>';
     echo '<form id="addItem" action="addItem()" method="POST" style="display: none;">';
     echo '<input placeholder="Item Name" name="item_id">';
     //echo '<input placeholder="Item Quantity">';
