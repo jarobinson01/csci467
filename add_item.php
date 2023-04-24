@@ -2,15 +2,20 @@
     include('config.php');
     echo "Hello";
 
-    $sql = "INSERT INTO Item (price) VALUES (?);";
+    $sql = "INSERT INTO Item (price, name) VALUES (?, ?);";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array($_POST['price']));
+    $success = $prepared->execute(array($_POST['price'], $_POST['name']));
 
-    $i = $_POST['item_id'];
-
-    $sql = "INSERT INTO Quote_Item (quote_id, item_id, price) VALUES (?, ?, ?);";
+    $sql = "SELECT * FROM Item;";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array(5, $_POST['item_id'], $_POST['price']));
+    $success = $prepared->execute();
+
+    $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    print_r($rows);
+
+    /*$sql = "INSERT INTO Quote_Item (quote_id) VALUES (?, ?, ?);";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_POST['quote_id'], $_POST['price'], $_POST['name']));*/
     //print_r($prepared);
 
     //header("Location: quote.php");

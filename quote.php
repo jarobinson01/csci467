@@ -41,7 +41,7 @@
 
         echo '<tr>';
         echo '<td>Quote ID: '.$row['quote_id'].'</td>';
-        echo '<td> --- Item ID: '.$row['item_id'].'</td>';
+        echo '<td> --- Item Name: '.$row['name'].'</td>';
         //echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
         //echo '<td> ---  Price: $'.$row['quantity']*$price.'</td>';
         echo '<td> ---  Price: $'.$price.'</td>';
@@ -54,8 +54,8 @@
 
     echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
     echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
-    //echo '<input name="quote_id" value="'.$id.'" style="diaplay: none;">';
-    echo '<input placeholder="Item Name" name="item_id">';
+    echo '<input name="quote_id" value="'.$id.'" style="diaplay: none;">';
+    echo '<input placeholder="Item Name" name="item_name">';
     //echo '<input placeholder="Item Quantity">';
     echo '<input placeholder="Item Price" name="price">';
     echo '<input type="submit" value="Add Item">';
