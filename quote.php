@@ -53,8 +53,9 @@
     echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
     echo '<input placeholder="Item Name" name="item_id">';
     //echo '<input placeholder="Item Quantity">';
+    echo '<input name="quote_id" value = "'.$id.'" style="diaplay: none;"';
     echo '<input placeholder="Item Price" name="price">';
-    echo '<input type="submit"  value="Add Item"/>';
+    echo '<input type="submit" value="Add Item"/>';
     echo '</form>';
 
     echo '<hr>';
