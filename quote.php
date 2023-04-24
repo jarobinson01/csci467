@@ -28,6 +28,8 @@
         echo '</br>';
     }
 
+    echo '<br>';
+    echo '<p><strong>Notes:</p>';
     echo '<textarea id="notes" rows="4" cols="50"></textarea>';
     echo '<br>';
 
