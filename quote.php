@@ -26,7 +26,7 @@
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     $total = 0;
-    //echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
+    echo '<h1>Quote #'.$id.'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row){
         $sql = "SELECT * FROM Item WHERE id = ".$row['item_id'].";";
@@ -51,10 +51,11 @@
 
     echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
     echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
+    echo '<input name="item_id">';
     echo '<input placeholder="Item Name" name="item_id">';
     //echo '<input placeholder="Item Quantity">';
     echo '<input placeholder="Item Price" name="price">';
-    echo '<button>Add Item</button>';
+    echo '<input type="submit" name="'.$id.'">Add Item</button>';
     echo '</form>';
 
     echo '<hr>';
