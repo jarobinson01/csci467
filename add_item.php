@@ -13,5 +13,5 @@
     $success = $prepared->execute(2, array($_POST['item_id']), array($_POST['price']));
     //print_r($prepared);
 
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
