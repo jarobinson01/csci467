@@ -54,7 +54,7 @@
     echo '<input placeholder="Item Name" name="item_id">';
     //echo '<input placeholder="Item Quantity">';
     echo '<input placeholder="Item Price" name="price">';
-    echo '<input type="submit" name="'.$id.'">Add Item</button>';
+    echo '<input type="submit" name="'.$id.'" value="Add Item"/>';
     echo '</form>';
 
     echo '<hr>';
