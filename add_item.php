@@ -8,7 +8,7 @@
 
     $i = $_POST['item_id'];
 
-    $sql = "INSERT INTO Quote_Item (quote_id, item_id, price) VALUES (?, ?, ?);";
+    $sql = "INSERT INTO Quote_Item (price) VALUES (?);";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_POST['price']));
     print_r($prepared);
