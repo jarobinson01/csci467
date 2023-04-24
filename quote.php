@@ -27,6 +27,7 @@
     $success = $prepared->execute(array($id));
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    print_r($rows);
     $total = 0;
     echo '<h1>Quote #'.$id.'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
