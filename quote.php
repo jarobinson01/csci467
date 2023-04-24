@@ -23,7 +23,7 @@
 
     $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?;";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array($id));
+    $success = $prepared->execute(array($QUOTE_ID));
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     $total = 0;
