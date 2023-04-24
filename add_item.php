@@ -1,6 +1,5 @@
 <?php
     include('config.php');
-    echo "Hello";
 
     $sql = "INSERT INTO Item (price, name) VALUES (?, ?);";
     $prepared = $db1->prepare($sql);
@@ -12,7 +11,7 @@
             AND   TABLE_NAME   = 'Item';";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
-    $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    $rows = $prepared->fetch();
     print_r($rows);
 
     //$sql = "INSERT INTO Quote_Item (quote_id) VALUES (?, ?, ?);";
@@ -23,6 +22,7 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    echo "<br>";
     print_r($rows);
     //print_r($prepared);
 
