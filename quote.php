@@ -28,5 +28,8 @@
         echo '</br>';
     }
 
+    echo '<textarea id="notes" rows="4" cols="50"></textarea>';
+    echo '<br>';
+
     echo '<button><a href="logout.php">Logout</a></button>';
 ?>
