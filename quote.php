@@ -22,7 +22,7 @@
     //$QUOTE_ID = $id;
     $id = 2;
 
-    $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?;";
+    $sql = "SELECT * FROM Quote_Item;";// WHERE quote_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($id));
 
