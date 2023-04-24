@@ -54,7 +54,7 @@
 
     echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
     echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
-    echo '<input name="quote_id" value="'.$id.'" style="diaplay: none;">';
+    echo '<input type="hidden" name="quote_id" value="'.$id.'">';
     echo '<input placeholder="Item Name" name="name">';
     //echo '<input placeholder="Item Quantity">';
     echo '<input placeholder="Item Price" name="price">';
