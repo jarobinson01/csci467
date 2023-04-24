@@ -20,13 +20,13 @@
     include('config.php');
     $id = key($_POST);
 
-    $sql = "SELECT * FROM Quote_Item";
+    $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($id));
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     $total = 0;
-    echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
+    //echo '<h1>Quote #'.$rows[0]['quote_id'].'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row){
         $sql = "SELECT * FROM Item WHERE id = ".$row['item_id'].";";
