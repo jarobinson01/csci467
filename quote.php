@@ -19,7 +19,7 @@
 <?php
     include('config.php');
 
-    $sql = "SELECT * FROM Quote_Item";
+    $sql = "SELECT * FROM Quote_Item WHERE status = 'F'";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
@@ -38,8 +38,9 @@
         echo '<tr>';
         echo '<td>Quote ID: '.$row['quote_id'].'</td>';
         echo '<td> --- Item ID: '.$row['item_id'].'</td>';
-        echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
-        echo '<td> ---  Price: $'.$row['quantity']*$price.'</td>';
+        //echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
+        //echo '<td> ---  Price: $'.$row['quantity']*$price.'</td>';
+        echo '<td> ---  Price: $'.$price.'</td>';
         echo '</tr>';
         echo ' ---- ';
         echo '<button onClick="document.location.href=\'quote.php\'">Edit</button>';
@@ -47,9 +48,10 @@
         echo '</br>';
     }
     echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
-    echo '<form id="addItem" style="display: none;">';
-    echo '<input value="Item Name">';
-    echo '<input value="Item Price">';
+    echo '<form id="addItem" method="POST" style="display: none;">';
+    echo '<input placeholder="Item Name">';
+    //echo '<input placeholder="Item Quantity">';
+    echo '<input placeholder="Item Price">';
     echo '<button id="addItem" onclick="itemAdded()">Add Item</button>';
     echo '</form>';
 
