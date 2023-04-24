@@ -5,6 +5,13 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_POST['price'], $_POST['name']));
 
+    $sql = "SELECT * FROM Item;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute();
+    $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    echo "<br>";
+    print_r($rows);
+
     $sql = "SELECT `AUTO_INCREMENT`
             FROM  INFORMATION_SCHEMA.TABLES
             WHERE TABLE_SCHEMA = 'z1923374'
@@ -12,11 +19,12 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
     $rows = $prepared->fetch();
-    print_r($rows);
+    echo "<br>";
+    print_r($rows[0]);
 
-    //$sql = "INSERT INTO Quote_Item (quote_id) VALUES (?, ?, ?);";
-    //$prepared = $db1->prepare($sql);
-    //$success = $prepared->execute(array($_POST['quote_id'], $_POST['price'], $_POST['name']));
+    $sql = "INSERT INTO Quote_Item (quote_id, item_id) VALUES (?, ?);";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_POST['quote_id'], $_POST['item_id']));
 
     $sql = "SELECT * FROM Quote_Item;";
     $prepared = $db1->prepare($sql);
@@ -24,7 +32,6 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo "<br>";
     print_r($rows);
-    //print_r($prepared);
 
     //header("Location: quote.php");
 ?>
