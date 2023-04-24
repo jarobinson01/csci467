@@ -49,13 +49,12 @@
         echo '</br>';
     }
 
-    echo '<button id="newItem" onclick="add_item.php
-    ">New Item</button>';
+    echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
     echo '<form id="addItem" action="addItem()" method="POST" style="display: none;">';
     echo '<input placeholder="Item Name" name="item_id">';
     //echo '<input placeholder="Item Quantity">';
     echo '<input placeholder="Item Price" name="price">';
-    echo '<button id="addItem" onclick="itemAdded()">Add Item</button>';
+    echo '<button id="addItem" onclick="add_item.php">Add Item</button>';
     echo '</form>';
 
     echo '<hr>';
