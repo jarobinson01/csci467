@@ -1,12 +1,17 @@
 <html>
     <script>
         function showAddItem() {
-        var x = document.getElementById("addItem");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+            var newItem = document.getElementById("newItem");
+            var addItem = document.getElementById("addItem");
+            addItem.style.display = "block";
+            newItem.style.display = "none";
         }
+
+        function itemAdded() {
+            var newItem = document.getElementById("newItem");
+            var addItem = document.getElementById("addItem");
+            addItem.style.display = "none";
+            newItem.style.display = "block";
         }
     </script>
 </html>
@@ -41,9 +46,11 @@
         echo '<button>Delete</button>';
         echo '</br>';
     }
-    echo '<button onclick="showAddItem()">Add Line Item</button>';
+    echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
     echo '<form id="addItem" style="display: none;">';
-    echo '<button>Add Item</button>';
+    echo '<input value="Item Name">';
+    echo '<input value="Item Price">';
+    echo '<button id="addItem" onclick="itemAdded()">Add Item</button>';
     echo '</form>';
 
     echo '<hr>';
