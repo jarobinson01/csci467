@@ -41,7 +41,7 @@
 
         echo '<tr>';
         echo '<td>Quote ID: '.$row['quote_id'].'</td>';
-        echo '<td> --- Item Name: '.$row['name'].'</td>';
+        echo '<td> --- Item Name: '.$lineItem['name'].'</td>';
         //echo '<td> ---  Quantity: '.$row['quantity'].'</td>';
         //echo '<td> ---  Price: $'.$row['quantity']*$price.'</td>';
         echo '<td> ---  Price: $'.$price.'</td>';
