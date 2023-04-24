@@ -19,6 +19,7 @@
 <?php
     include('config.php');
     $id = key($_POST);
+    echo $id;
 
     $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?;";
     $prepared = $db1->prepare($sql);
