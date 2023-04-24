@@ -20,7 +20,7 @@
     include('config.php');
     $id = key($_POST);
 
-    $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?";
+    $sql = "SELECT * FROM Quote_Item";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($id));
 
