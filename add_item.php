@@ -1,5 +1,6 @@
 <?php
     include('config.php');
+    print_r($_POST);
 
     $sql = "INSERT INTO Item (price) VALUES ('".$_POST['price']."');";
     $prepared = $db1->prepare($sql);
@@ -9,5 +10,5 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
