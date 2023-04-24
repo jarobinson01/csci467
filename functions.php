@@ -1,10 +1,5 @@
 <?php
     include('config.php');
-    $id = array(key($_POST));
-
-    $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute($id);
 
     function display_quote($rows) {
         $total = 0;
