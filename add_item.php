@@ -1,13 +1,13 @@
 <?php
     include('config.php');
 
-    $sql = "INSERT INTO Item (price) VALUES ('".$_POST['price']."');";
+    $sql = "INSERT INTO Item (price) VALUES (?);";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
+    $success = $prepared->execute($_POST['price']);
 
-    $sql = "INSERT INTO Quote_Item (quote_id, item_id, price) VALUES (2, '".$_POST['item_id']."', '".$_POST['price']."');";
+    $sql = "INSERT INTO Quote_Item (quote_id, item_id, price) VALUES (?, ?, ?);";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
+    $success = $prepared->execute(2, $_POST['item_id'], $_POST['price']);
     //print_r($prepared);
 
     //header("Location: quote.php");
