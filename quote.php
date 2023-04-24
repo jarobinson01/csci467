@@ -19,7 +19,8 @@
 <?php
     include('config.php');
     $id = key($_POST);
-    $QUOTE_ID = $id;
+    //$QUOTE_ID = $id;
+    $id = 2;
 
     $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?;";
     $prepared = $db1->prepare($sql);
@@ -27,7 +28,7 @@
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     $total = 0;
-    echo '<h1>Quote #'.$id.'</h1>';
+    echo '<h1>Quote #'.$QUOTE_ID.'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row){
         $sql = "SELECT * FROM Item WHERE id = ".$row['item_id'].";";
