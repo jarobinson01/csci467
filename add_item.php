@@ -10,5 +10,5 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
-    //header("Location: quote.php");
+    header("Location: quote.php");
 ?>
