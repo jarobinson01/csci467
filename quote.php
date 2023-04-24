@@ -1,3 +1,16 @@
+<html>
+    <script>
+        function showAddItem() {
+        var x = document.getElementById("addItem");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+    </script>
+</html>
+
 <?php
     include('config.php');
 
@@ -28,6 +41,11 @@
         echo '<button>Delete</button>';
         echo '</br>';
     }
+    echo '<button onclick="showAddQuote()">Add Line Item</button>';
+    echo '<form id="addItem">';
+    echo '<button>Add Item</button>';
+    echo '</form>';
+
     echo '<hr>';
 
     echo '<br>';
