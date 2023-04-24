@@ -55,6 +55,7 @@ CREATE TABLE Quote_Note(
 CREATE TABLE Quote_Item(
 	quote_id INTEGER NOT NULL,
 	item_id INTEGER NOT NULL,
+	quantity INTEGER NOT NULL,
 	FOREIGN KEY(quote_id) REFERENCES Quote(id),
 	FOREIGN KEY(item_id) REFERENCES Item(id)
 );
