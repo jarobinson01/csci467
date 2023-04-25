@@ -84,7 +84,7 @@
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
         echo '<form>';
-        echo '<input value="'.$lineItem['text_field'].' disabled">';
+        echo '<input value="'.$lineItem['text_field'].'" disabled>';
         echo '</form>';
         echo ' ---- ';
         /* vvv EDIT ITEM FORM vvv
