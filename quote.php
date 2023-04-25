@@ -46,7 +46,7 @@
         $price = $lineItem['price'];
 
         global $total;
-        $total += $row['quantity']*$price;
+        $total += $price;
 
         echo '<tr>';
         echo '<td>Quote ID: '.$row['foreign_quote_id'].'</td>';
