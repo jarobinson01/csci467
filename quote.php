@@ -37,7 +37,7 @@
     echo '<h1>Quote #'.$_SESSION['QUOTE_ID'].'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row) {
-        $sql = "SELECT * FROM Item WHERE item_id = ".$row['foreign_item_id'].";";
+        $sql = "SELECT * FROM Item WHERE item_id = ".$row['item_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
