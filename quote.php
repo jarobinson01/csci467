@@ -78,12 +78,12 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo '<br>';
     echo '<p><strong>Notes:</p>';
-    $sql = "SELECT * FROM Note;";
+    $sql = "DELETE * FROM Note;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
-    $rows2 = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    print_r($rows2);
+    //$rows2 = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    //print_r($rows2);
     foreach($rows as $row) {
         $sql = "SELECT * FROM Note WHERE note_id = ".$row['note_id'].";";
         $prepared = $db1->prepare($sql);
