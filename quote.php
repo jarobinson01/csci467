@@ -78,7 +78,7 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo '<br>';
     echo '<p><strong>Notes:</p>';
-    $sql = "DELETE * FROM Note;";
+    $sql = "DELETE * FROM Quote_Note;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
