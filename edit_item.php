@@ -4,13 +4,13 @@
     include('config.php');
 
     $keys = array_keys($_POST);
-    $_SESSION["ITEM_ID"] = $keys[0];
-    $item_id = key($_POST);
+    $_SESSION['ITEM_ID'] = $keys[0];
+    //$item_id = key($_POST);
 
     $sql = 'UPDATE Item SET name=:name WHERE id=:id;';
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('name' => $_POST['name'], 'id' => $item_id));
-    echo $item_id;
+    echo $_SESSION['ITEM_ID'];
 
     /*$sql = "UPDATE Item SET name='?' WHERE id=?;";
     $prepared = $db1->prepare($sql);
