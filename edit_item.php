@@ -4,7 +4,7 @@
     include('config.php');
 
     $keys = array_keys($_POST);
-    $_SESSION["QUOTE_ID"] = keys[2];
+    $_SESSION["QUOTE_ID"] = $keys[2];
 
     $item_id = key($_POST);
     print_r($_POST);
