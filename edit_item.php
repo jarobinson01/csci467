@@ -4,7 +4,7 @@
     include('config.php');
 
     $keys = array_keys($_POST);
-    $_SESSION["QUOTE_ID"] = $keys[2];
+    $_SESSION["ITEM_ID"] = $keys[0];
     $item_id = key($_POST);
 
     $sql = 'UPDATE Item SET name=:name WHERE id=:id;';
