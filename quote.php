@@ -96,7 +96,7 @@
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
-        $note_id = $row['foreign_note_id'];
+        $note_id = $row['note_id'];
         echo '<form style="display: inline;">';
         echo '<input id='.$note_id.' value="'.$lineItem['text_field'].'" disabled>';
         echo '</form>';
