@@ -8,8 +8,8 @@
         }
 
         function showEditItem(itemId) {
-            var editItem = document.getElementById("editItem");
-            var saveItem = document.getElementById(itemId);
+            var editItem = document.getElementById("editItem" + itemId);
+            var saveItem = document.getElementById("saveItem" + itemId);
             editItem.style.display = "none";
             saveItem.style.display = "inline";
         }
@@ -38,6 +38,7 @@
         $lineItem = $prepared->fetch();
         $price = $lineItem['price'];
         $total += $row['quantity']*$price;
+        $item_id = $row['item_id'];
 
         echo '<tr>';
         echo '<td>Quote ID: '.$row['quote_id'].'</td>';
@@ -46,13 +47,13 @@
         echo '</tr>';
         echo ' ---- ';
         // vvv EDIT ITEM FORM vvv
-        echo '<form id="saveItem" action="edit_item.php" method="POST" style="display: none;">';
+        echo '<form id="saveItem'.$item_id.'" action="edit_item.php" method="POST" style="display: none;">';
         echo '<input placeholder="Item Name" name="name" value="'.$lineItem['name'].'" required>';
         echo '<input placeholder="Item Price" name="price" value="'.$price.'" required>';
-        echo '<input type="submit" name="'.$row['item_id'].'" value="Save Changes">';
+        echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
-        echo '<button id="'.$row['item_id'].'" onclick="showEditItem(\''.$row['item_id'].'\')">Edit</button>';
+        echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
         echo '<button>Delete</button>';
         echo '</br>';
     }
