@@ -98,9 +98,9 @@
         echo '<button>Delete</button>';
         echo '</br>';
     }
-    echo '<form>';
-    echo '<input id="notes" rows="4" cols="50" maxlength="250"></textarea>';
-    echo "<input type='submit' name='save_note' value='Submit'>";
+    echo '<form action="add_note.php" method="POST">';
+    echo '<input id="note" rows="4" cols="50" maxlength="250"></textarea>';
+    echo "<input type='submit' name='save_note' value='Save Note'>";
     echo '</form>';
     echo '<br><br>';
 ?>
