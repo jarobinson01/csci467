@@ -9,7 +9,7 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     foreach($rows as $row){
         echo '<tr>';
-        echo '<td>'.$row['id'].'</td>';
+        echo '<td>'.$row['quote_id'].'</td>';
         echo '<td> -    Cutsomter '.$row['customer'].'</td>';
         echo '<td> ---  Price: $'.$row['price'].'</td>';
         echo '<td> ---  Customer Email: '.$row['customerEmail'].'</td>';
@@ -17,7 +17,7 @@
         echo '</tr>';
         echo ' ---- ';
         echo '<form action=select_quote.php method=POST style="display: inline;">';
-        echo '<input type="submit" name="'.$row['id'].'" value="Sanction Quote">';
+        echo '<input type="submit" name="'.$row['quote_id'].'" value="Sanction Quote">';
         echo '</form>';
         echo '<button>Delete Quote</button>';
         echo '</br>';

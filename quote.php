@@ -22,7 +22,7 @@
     include('config.php');
 
     // Display the line items for the quote selected
-    $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?;";
+    $sql = "SELECT * FROM Quote_Item WHERE foreign_quote_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
 
@@ -32,7 +32,7 @@
     echo '<h1>Quote #'.$_SESSION['QUOTE_ID'].'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row) {
-        $sql = "SELECT * FROM Item WHERE id = ".$row['item_id'].";";
+        $sql = "SELECT * FROM Item WHERE item_id = ".$row['item_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
@@ -41,7 +41,7 @@
         $item_id = $row['item_id'];
 
         echo '<tr>';
-        echo '<td>Quote ID: '.$row['quote_id'].'</td>';
+        echo '<td>Quote ID: '.$row['foreign_quote_id'].'</td>';
         echo '<td> --- Item Name: '.$lineItem['name'].'</td>';
         echo '<td> ---  Price: $'.$price.'</td>';
         echo '</tr>';
@@ -71,7 +71,7 @@
     echo '<hr>';
 
     // Display Notes
-    $sql = "SELECT * FROM Quote_Note WHERE quote_id = ?;";
+    $sql = "SELECT * FROM Quote_Note WHERE foreign_quote_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
 
@@ -79,7 +79,7 @@
     echo '<br>';
     echo '<p><strong>Notes:</p>';
     foreach($rows as $row) {
-        $sql = "SELECT * FROM Note WHERE id = ".$row['note_id'].";";
+        $sql = "SELECT * FROM Note WHERE note_id = ".$row['note_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
@@ -100,7 +100,7 @@
     }
     echo '<form>';
     echo '<input id="notes" rows="4" cols="50" maxlength="250"></textarea>';
-    echo "<input type='submit' name='save_quote' value='Submit'>";
+    echo "<input type='submit' name='save_note' value='Submit'>";
     echo '</form>';
     echo '<br><br>';
 ?>

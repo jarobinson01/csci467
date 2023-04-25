@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+
     include('config.php');
 
     // Get current id value for the Item that will be added
@@ -18,7 +18,7 @@
     $success = $prepared->execute(array($_POST['price'], $_POST['name']));
 
     // Insert row into Quote_Item table
-    $sql = "INSERT INTO Quote_Item (quote_id, item_id, quantity) VALUES (?, ?, ?);";
+    $sql = "INSERT INTO Quote_Item (quote_id, foreign_item_id, quantity) VALUES (?, ?, ?);";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID'], $item_id[0], 1));
 
