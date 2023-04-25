@@ -18,7 +18,7 @@
     // Insert row into Quote_Item table
     $sql = "INSERT INTO Quote_Item (quote_id, item_id, quantity) VALUES (?, ?, ?);";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array($_POST['quote_id'], $item_id[0], 1));
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID'], $item_id[0], 1));
 
     /*$sql = "SELECT * FROM Quote_Item;";
     $prepared = $db1->prepare($sql);
