@@ -32,18 +32,21 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    //print_r($rows);
+
     $total = 0;
     echo '<h1>Quote #'.$_SESSION['QUOTE_ID'].'</h1>';
     echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row) {
         $sql = "SELECT * FROM Item WHERE item_id = ".$row['foreign_item_id'].";";
+        $item_id = $row['foreign_item_id'];
+
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
         $price = $lineItem['price'];
+
+        global $total;
         $total += $row['quantity']*$price;
-        $item_id = $row['foreign_item_id'];
 
         echo '<tr>';
         echo '<td>Quote ID: '.$row['foreign_quote_id'].'</td>';
@@ -74,6 +77,11 @@
     echo '<input placeholder="Item Price" name="price" required>';
     echo '<input type="submit" value="Add Item">';
     echo '</form>';
+
+    // Display Totals and Discounts
+    echo '<hr>';
+    echo '<h3>Total Quote Price:      </h3>';
+    echo '<h2>'.$total.'</h2>';
 
     echo '<hr>';
 
@@ -110,7 +118,7 @@
     }
     echo '<form action="add_note.php" method="POST">';
     echo '<input name="note" maxlength="250">';
-    echo "<input type='submit' name='save_note' value='Save Note'>";
+    echo "<input type='submit' name='save_note' value='Save New Note'>";
     echo '</form>';
     echo '<br><br>';
 ?>
