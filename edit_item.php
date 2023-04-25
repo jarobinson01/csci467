@@ -7,10 +7,16 @@
     $_SESSION["QUOTE_ID"] = $keys[2];
     $item_id = key($_POST);
 
-    $sql = "UPDATE Item SET name='".$_POST['name']."' WHERE id=".$item_id.";";
+    /*$sql = 'UPDATE Item 
+            SET name=".$_POST['name']."
+            WHERE id=.$item_id.;';
     //$sql = "UPDATE Item SET name='Desk' WHERE id=1";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
+    $success = $prepared->execute();*/
+
+    $sql = 'UPDATE Item SET name="?" WHERE id=?';
+    $prepared = $db1->prepare($sql);
+    $prepared->execute(array($_POST['name'], $_POST['id']));
 
     /*$sql = "UPDATE Item SET price=".$_POST['price']." WHERE id=".$item_id.";";
     $prepared = $db1->prepare($sql);
