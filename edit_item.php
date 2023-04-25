@@ -9,7 +9,7 @@
 
     $sql = 'UPDATE Item SET name=:name WHERE id=:id;';
     $prepared = $db1->prepare($sql);
-    $prepared->execute(array('name' => $_POST['name'], 'id' => $item_id));
+    $prepared->execute(array('name' => $_POST['name'], 'id' => $_SESSION['ITEM_ID']));
     echo $_SESSION['ITEM_ID'];
 
     /*$sql = "UPDATE Item SET name='?' WHERE id=?;";
