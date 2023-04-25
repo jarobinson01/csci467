@@ -11,12 +11,12 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($quote_id));
 
-    /*$sql = "SELECT * FROM Quote_Item;";
+    $sql = "SELECT * FROM Quote;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo "<br>";
-    print_r($rows);*/
+    print_r($rows);
 
     // Redirect to quote page
     //header("Location: hq.php");
