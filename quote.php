@@ -78,12 +78,6 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo '<br>';
     echo '<p><strong>Notes:</p>';
-    $sql = "DELETE * FROM Quote_Note;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
-
-    //$rows2 = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    //print_r($rows2);
     foreach($rows as $row) {
         $sql = "SELECT * FROM Note WHERE note_id = ".$row['note_id'].";";
         $prepared = $db1->prepare($sql);
@@ -105,7 +99,7 @@
         echo '</br>';
     }
     echo '<form action="add_note.php" method="POST">';
-    echo '<input id="note" rows="4" cols="50" maxlength="250"></textarea>';
+    echo '<input id="note" maxlength="250"></textarea>';
     echo "<input type='submit' name='save_note' value='Save Note'>";
     echo '</form>';
     echo '<br><br>';
