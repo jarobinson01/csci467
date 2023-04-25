@@ -5,14 +5,10 @@
 
     $keys = array_keys($_POST);
     $_SESSION['ITEM_ID'] = $keys[2];
-    print_r($keys);
-    echo "<br>";
-    //$item_id = key($_POST);
 
     $sql = 'UPDATE Item SET name=:name WHERE id=:id;';
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('name' => $_POST['name'], 'id' => $_SESSION['ITEM_ID']));
-    echo $_SESSION['ITEM_ID'];
 
     /*$sql = "UPDATE Item SET name='?' WHERE id=?;";
     $prepared = $db1->prepare($sql);
@@ -28,4 +24,6 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo "<br>";
     print_r($rows);
+
+    header("Location: quote.php");
 ?>
