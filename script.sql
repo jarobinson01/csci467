@@ -34,7 +34,7 @@ CREATE TABLE Note(
 CREATE TABLE Item(
 	item_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	price DECIMAL(7,2) NOT NULL,
-	name CHAR(20) NOT NULL
+	item_name CHAR(20) NOT NULL
 );
 
 CREATE TABLE Create_Quote(
@@ -68,20 +68,20 @@ INSERT INTO User (is_associate, is_admin, name, password, commission, address) V
 
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('18', 945.00, 'rottenbutwhole@gmail.com', 'Unfinalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 1, '2023-04-22');
-INSERT INTO Item (price, name) VALUES (315, 'desk');
+INSERT INTO Item (price, item_name) VALUES (315, 'desk');
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (1, 1, 3);
 
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('94', 1460.87, 'buschlight@gmail.com', 'Finalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 2, '2023-04-23');
-INSERT INTO Item (price, name) VALUES (400, 'Table');
-INSERT INTO Item (price, name) VALUES (200, 'Coffee');
+INSERT INTO Item (price, item_name) VALUES (400, 'Table');
+INSERT INTO Item (price, item_name) VALUES (200, 'Coffee');
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (2, 2, 3);
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (2, 3, 1);
 
 
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('113', 1960.32, 'anotheremail@gmail.com', 'Sanctioned');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (2, 3, '2022-08-15');
-INSERT INTO Item (price, name) VALUES (400, 'SomeItem');
-INSERT INTO Item (price, name) VALUES (200, 'SomeOtherItem');
+INSERT INTO Item (price, item_name) VALUES (400, 'SomeItem');
+INSERT INTO Item (price, item_name) VALUES (200, 'SomeOtherItem');
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (3, 4, 3);
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (3, 5, 4);
