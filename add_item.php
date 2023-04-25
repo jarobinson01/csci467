@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     include('config.php');
 
     // Get current id value for the Item that will be added
