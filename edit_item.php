@@ -11,7 +11,7 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
-    $sql = "UPDATE Item SET price='".$_POST['price']."' WHERE id='".$item_id."'";
+    $sql = "UPDATE Item SET price=".$_POST['price']." WHERE id='".$item_id."'";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
