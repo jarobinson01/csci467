@@ -22,6 +22,7 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($quote_id));
 
+    // can delete later
     if($success) {
         echo "Success";
     } else {
