@@ -1,6 +1,6 @@
 <?php
 
-    echo "<form action=\"?\" method=\"POST\">";               //form for submitting necessary information from the customer to process the orders
+    echo "<form action=\"?\" method=\"POST\">"; //form for submitting necessary information from the customer to process the orders
         echo 'Administrator:';
         echo "<input type=\"submit\" name=\"associate\" value=\"Associates\">";
         echo "<input type=\"submit\" name=\"customer\" value=\"Customers\">";
