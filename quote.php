@@ -59,7 +59,9 @@
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
         echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
-        echo '<button>Delete</button>';
+        echo '<form action="delete_item.php" method="POST">';
+        echo '<input type="submit" name="'.$item_id.'" value="Delete">';
+        echo '</form>';
         echo '</br>';
     }
 
@@ -98,8 +100,8 @@
         $lineItem = $prepared->fetch();
         $note_id = $row['note_id'];
         echo '<form style="display: inline;">';
-        echo '<input id="'.$note_id.'" value="'.$lineItem['text_field'].'" disabled="false">';
-        echo '</form>';
+        echo '<input id="'.$note_id.'" value="'.$lineItem['text_field'].'" disabled>';
+        echo '</form action>';
         echo '<button id="editNote'.$note_id.'" onclick="showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<button>Delete</button>';
         echo '</br>';
