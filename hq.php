@@ -17,6 +17,7 @@
         foreach($items as $item) {
             $total += $item['price'];
         }
+        print_r($items);
 
         $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
         $prepared = $db1->prepare($sql);
