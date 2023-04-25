@@ -14,7 +14,7 @@
 	$query = file_get_contents("script.sql");
 
 	// prepare the SQL statements
-	$stmt = $db->prepare($query);
+	$stmt = $db1->prepare($query);
 
 	// execute the SQL
 	if ($stmt->execute()){
