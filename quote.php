@@ -80,8 +80,15 @@
 
     // Display Totals and Discounts
     echo '<hr>';
-    echo '<h3>Total Quote Price:      </h3>';
-    echo '<h2>'.$total.'</h2>';
+    echo '<h3>Total Quote Price:      $'.$total.'</h3>';
+    echo '<form action="apply_discount.php" method="POST">';
+    echo '<input placeholder="Discount" name="discount" required>';
+    echo '<input type="radio" id="percentage" name="percentage" value="percentage">';
+    echo '<label for="percentage">percentage</label>';
+    echo '<input type="radio" id="amount" name="amount" value="amount">';
+    echo '<label for="amount">amount</label>';
+    echo '<input type="submit">';
+    echo '</form>';
 
     echo '<hr>';
 
