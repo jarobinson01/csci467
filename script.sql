@@ -65,20 +65,19 @@ INSERT INTO User (name, password, commission, address) VALUES ('another associat
 INSERT INTO User (is_associate, is_hq, name, password, commission, address) VALUES (0, 1, 'bradhq', '1234', '0', '475 Laurel St.');
 INSERT INTO User (is_associate, is_admin, name, password, commission, address) VALUES (0, 1, 'bradadmin', '1234', '0', '475 Admin St.');
 
-INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('18', 945.00, 'rottenbutwhole@gmail.com', 'Unfinalized');
+INSERT INTO Quote (customer, customerEmail, status) VALUES ('18', 'rottenbutwhole@gmail.com', 'Unfinalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 1, '2023-04-22');
 INSERT INTO Item (price, item_name) VALUES (315, 'desk');
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (1, 1);
 
-INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('94', 1460.87, 'buschlight@gmail.com', 'Finalized');
+INSERT INTO Quote (customer, customerEmail, status) VALUES ('94', 'buschlight@gmail.com', 'Finalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 2, '2023-04-23');
 INSERT INTO Item (price, item_name) VALUES (400, 'Table');
 INSERT INTO Item (price, item_name) VALUES (200, 'Coffee');
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (2, 2);
 INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (2, 3);
 
-
-INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('113', 1960.32, 'anotheremail@gmail.com', 'Sanctioned');
+INSERT INTO Quote (customer, customerEmail, status) VALUES ('113', 'anotheremail@gmail.com', 'Sanctioned');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (2, 3, '2022-08-15');
 INSERT INTO Item (price, item_name) VALUES (400, 'SomeItem');
 INSERT INTO Item (price, item_name) VALUES (200, 'SomeOtherItem');

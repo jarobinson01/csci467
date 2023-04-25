@@ -7,11 +7,25 @@
     $success = $prepared->execute();
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
+    $total = 0;
     foreach($rows as $row) {
+        global $total;
+        $sql = "SELECT * FROM Item WHERE item_id = ".$row['foreign_item_id'].";";
+        $prepared = $db1->prepare($sql);
+        $success = $prepared->execute();
+        $items = $prepared->fetchAll(PDO::FETCH_ASSOC);
+        foreach($items as $item) {
+            $total += $item['price'];
+        }
+
+        $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
+        $prepared = $db1->prepare($sql);
+        $success = $prepared->execute(array('price' => $total, 'id' => $row['quote_id']));
+
         echo '<tr>';
         echo '<td>'.$row['quote_id'].'</td>';
         echo '<td> -    Cutsomter '.$row['customer'].'</td>';
-        echo '<td> ---  Price: $'.$row['price'].'</td>';
+        echo '<td> ---  Price: $'.$total.'</td>';
         echo '<td> ---  Customer Email: '.$row['customerEmail'].'</td>';
         echo '<td> ---  Quote Status: '.$row['status'].'</td>';
         echo '</tr>';
@@ -23,6 +37,8 @@
         echo '<input type="submit" name="'.$row['quote_id'].'" value="Delete Quote">';
         echo '</form>';
         echo '</br>';
+
+        $total = 0;
     }
 
     echo '<button><a href="logout.php">Logout</a></button>';
