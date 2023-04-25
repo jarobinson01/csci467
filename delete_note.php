@@ -7,28 +7,15 @@
     echo $note_id;
     echo "<br>";
 
-    // Insert row into Item table
-    $sql = "DELETE FROM Note WHERE note_id = ?;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array($note_id));
-
-    if($success) {
-        echo "Success";
-    } else {
-        echo "Fail";
-    }
-    echo "<br>";
-
     // Insert row into Quote_Item table
     $sql = "DELETE FROM Quote_Note WHERE foreign_note_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($note_id));
 
-    if($success) {
-        echo "Success";
-    } else {
-        echo "Fail";
-    }
+    // Insert row into Item table
+    $sql = "DELETE FROM Note WHERE note_id = ?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($note_id));
 
     $sql = "SELECT * FROM Note;";
     $prepared = $db1->prepare($sql);
@@ -38,5 +25,5 @@
     print_r($rows);
 
     // Redirect to quote page
-    //header("Location: quote.php");
+    header("Location: quote.php");
 ?>
