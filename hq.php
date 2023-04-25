@@ -7,7 +7,7 @@
     $success = $prepared->execute();
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    foreach($rows as $row){
+    foreach($rows as $row) {
         echo '<tr>';
         echo '<td>'.$row['quote_id'].'</td>';
         echo '<td> -    Cutsomter '.$row['customer'].'</td>';
@@ -19,7 +19,9 @@
         echo '<form action=select_quote.php method=POST style="display: inline;">';
         echo '<input type="submit" name="'.$row['quote_id'].'" value="Sanction Quote">';
         echo '</form>';
-        echo '<button>Delete Quote</button>';
+        echo '<form action="delete_quote.php" method="POST" style="display: inline;">';
+        echo '<input type="submit" name="'.$row['quote_id'].'" value="Delete Quote">';
+        echo '</form>';
         echo '</br>';
     }
 
