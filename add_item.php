@@ -18,7 +18,7 @@
     $success = $prepared->execute(array($_POST['price'], $_POST['name']));
 
     // Insert row into Quote_Item table
-    $sql = "INSERT INTO Quote_Item (quote_id, foreign_item_id, quantity) VALUES (?, ?, ?);";
+    $sql = "INSERT INTO Quote_Item (foreign_quote_id, foreign_item_id, quantity) VALUES (?, ?, ?);";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID'], $item_id[0], 1));
 
@@ -30,5 +30,5 @@
     print_r($rows);*/
 
     // Redirect to quote page
-    //header("Location: quote.php");
+    header("Location: quote.php");
 ?>
