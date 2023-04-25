@@ -8,7 +8,7 @@
     echo "<br>";
 
     // Insert row into Quote_Item table
-    $sql = "DELETE FROM Quote_Note WHERE foreign_note_id = ?;";
+    $sql = "DELETE FROM Quote_Note WHERE note_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($note_id));
 
