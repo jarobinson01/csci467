@@ -99,7 +99,7 @@
         echo '</br>';
     }
     echo '<form action="add_note.php" method="POST">';
-    echo '<input id="note" maxlength="250">';
+    echo '<input name="note" maxlength="250">';
     echo "<input type='submit' name='save_note' value='Save Note'>";
     echo '</form>';
     echo '<br><br>';
