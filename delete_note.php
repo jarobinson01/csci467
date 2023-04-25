@@ -4,6 +4,8 @@
     include('config.php');
 
     $note_id = key($_POST);
+    echo $note_id;
+    echo "<br>";
 
     // Insert row into Item table
     $sql = "DELETE FROM Note WHERE note_id = ?;";
