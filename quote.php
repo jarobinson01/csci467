@@ -91,17 +91,10 @@
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
-        echo '<form>';
+        echo '<form style="display: inline;">';
         echo '<input value="'.$lineItem['text_field'].'" disabled>';
         echo '</form>';
         echo ' ---- ';
-        /* vvv EDIT ITEM FORM vvv
-        echo '<form id="saveItem'.$item_id.'" action="edit_item.php" method="POST" style="display: none;">';
-        echo '<input placeholder="Item Name" name="name" value="'.$lineItem['name'].'" required>';
-        echo '<input placeholder="Item Price" name="price" value="'.$price.'" required>';
-        echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
-        echo '</form>';
-        // ^^^^^^^^^^^^^^^^^^^^^^*/
         echo '<button id="editNote'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
         echo '<button>Delete</button>';
         echo '</br>';
