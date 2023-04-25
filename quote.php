@@ -52,7 +52,7 @@
         echo '<input type="submit" name="'.$row['item_id'].'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
-        echo '<button id="'.$row['item_id'].'" onclick="showEditItem("'.$row['item_id'].'")">Edit</button>';
+        echo '<button id="'.$row['item_id'].'" onclick="showEditItem('.$row['item_id'].')">Edit</button>';
         echo '<button>Delete</button>';
         echo '</br>';
     }
