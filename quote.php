@@ -18,9 +18,6 @@
 
 <?php
     include('config.php');
-    //$id = key($_POST);
-    //$QUOTE_ID = $id;
-    //$id = 2;
 
     // Display the line items for the quote selected
     $sql = "SELECT * FROM Quote_Item WHERE quote_id = ?;";
@@ -69,7 +66,7 @@
     echo '<p><strong>Notes:</p>';
     echo '<form>';
     echo '<textarea id="notes" rows="4" cols="50" maxlength="250"></textarea>';
-    echo "<input type='submit' name='save_quote' value='Submit'>"; //submit button
+    echo "<input type='submit' name='save_quote' value='Submit'>";
     echo '</form>';
     echo '<br><br>';
 ?>
