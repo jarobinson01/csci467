@@ -4,6 +4,7 @@
     include('config.php');
 
     $quote_id = key($_POST);
+    echo $quote_id;
 
     // Delete specified quote from table
     $sql = "DELETE FROM Quote WHERE quote_id = ?;";
