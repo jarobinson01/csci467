@@ -13,7 +13,7 @@
     $item_id = $prepared->fetch();
 
     // Insert row into Item table
-    $sql = "INSERT INTO Item (price, name) VALUES (?, ?);";
+    $sql = "INSERT INTO Item (price, item_name) VALUES (?, ?);";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_POST['price'], $_POST['name']));
 
