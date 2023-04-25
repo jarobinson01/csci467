@@ -17,6 +17,8 @@
 </html>
 
 <?php
+    session_start();
+    
     include('config.php');
 
     // Display the line items for the quote selected
