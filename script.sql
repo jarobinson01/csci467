@@ -55,7 +55,6 @@ CREATE TABLE Quote_Note(
 CREATE TABLE Quote_Item(
 	foreign_quote_id INTEGER NOT NULL,
 	foreign_item_id INTEGER NOT NULL,
-	quantity INTEGER NOT NULL,
 	FOREIGN KEY(foreign_quote_id) REFERENCES Quote(quote_id),
 	FOREIGN KEY(foreign_item_id) REFERENCES Item(item_id)
 );
@@ -69,19 +68,19 @@ INSERT INTO User (is_associate, is_admin, name, password, commission, address) V
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('18', 945.00, 'rottenbutwhole@gmail.com', 'Unfinalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 1, '2023-04-22');
 INSERT INTO Item (price, item_name) VALUES (315, 'desk');
-INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (1, 1, 3);
+INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (1, 1, 3);
 
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('94', 1460.87, 'buschlight@gmail.com', 'Finalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 2, '2023-04-23');
 INSERT INTO Item (price, item_name) VALUES (400, 'Table');
 INSERT INTO Item (price, item_name) VALUES (200, 'Coffee');
-INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (2, 2, 3);
-INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (2, 3, 1);
+INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (2, 2);
+INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (2, 3);
 
 
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('113', 1960.32, 'anotheremail@gmail.com', 'Sanctioned');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (2, 3, '2022-08-15');
 INSERT INTO Item (price, item_name) VALUES (400, 'SomeItem');
 INSERT INTO Item (price, item_name) VALUES (200, 'SomeOtherItem');
-INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (3, 4, 3);
-INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id, quantity) VALUES (3, 5, 4);
+INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (3, 4);
+INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (3, 5);

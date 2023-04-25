@@ -18,9 +18,9 @@
     $success = $prepared->execute(array($_POST['price'], $_POST['name']));
 
     // Insert row into Quote_Item table
-    $sql = "INSERT INTO Quote_Item (foreign_quote_id, foreign_item_id, quantity) VALUES (?, ?, ?);";
+    $sql = "INSERT INTO Quote_Item (foreign_quote_id, foreign_item_id) VALUES (?, ?);";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array($_SESSION['QUOTE_ID'], $item_id[0], 1));
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID'], $item_id[0]));
 
     /*$sql = "SELECT * FROM Quote_Item;";
     $prepared = $db1->prepare($sql);
