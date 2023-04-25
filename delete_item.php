@@ -23,5 +23,5 @@
     print_r($rows);*/
 
     // Redirect to quote page
-    //header("Location: quote.php");
+    header("Location: quote.php");
 ?>
