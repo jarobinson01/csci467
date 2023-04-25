@@ -58,7 +58,7 @@
         echo '</br>';
     }
 
-    // Add new line items and notes
+    // Add new line items
     echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
     echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
     //echo '<input type="hidden" name="quote_id" value="'.$QUOTE_ID.'">'; //* CAN DELETE LATER IF QUOTE_ID WORKS */
@@ -70,10 +70,36 @@
 
     echo '<hr>';
 
+    // Display Notes
+    $sql = "SELECT * FROM Quote_Note WHERE quote_id = ?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+
+    $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo '<br>';
     echo '<p><strong>Notes:</p>';
+    foreach($rows as $row) {
+        $sql = "SELECT * FROM Note WHERE id = ".$row['note_id'].";";
+        $prepared = $db1->prepare($sql);
+        $success = $prepared->execute();
+        $lineItem = $prepared->fetch();
+        echo '<form>';
+        echo '<input value="'.$lineItem['text_field'].' disabled">';
+        echo '</form>';
+        echo ' ---- ';
+        /* vvv EDIT ITEM FORM vvv
+        echo '<form id="saveItem'.$item_id.'" action="edit_item.php" method="POST" style="display: none;">';
+        echo '<input placeholder="Item Name" name="name" value="'.$lineItem['name'].'" required>';
+        echo '<input placeholder="Item Price" name="price" value="'.$price.'" required>';
+        echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
+        echo '</form>';
+        // ^^^^^^^^^^^^^^^^^^^^^^*/
+        echo '<button id="editNote'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
+        echo '<button>Delete</button>';
+        echo '</br>';
+    }
     echo '<form>';
-    echo '<textarea id="notes" rows="4" cols="50" maxlength="250"></textarea>';
+    echo '<input id="notes" rows="4" cols="50" maxlength="250"></textarea>';
     echo "<input type='submit' name='save_quote' value='Submit'>";
     echo '</form>';
     echo '<br><br>';
