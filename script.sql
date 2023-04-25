@@ -68,7 +68,7 @@ INSERT INTO User (is_associate, is_admin, name, password, commission, address) V
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('18', 945.00, 'rottenbutwhole@gmail.com', 'Unfinalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 1, '2023-04-22');
 INSERT INTO Item (price, item_name) VALUES (315, 'desk');
-INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (1, 1, 3);
+INSERT INTO Quote_Item(foreign_quote_id, foreign_item_id) VALUES (1, 1);
 
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('94', 1460.87, 'buschlight@gmail.com', 'Finalized');
 INSERT INTO Create_Quote (associate_id, foreign_quote_id, date) VALUES (1, 2, '2023-04-23');
