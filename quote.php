@@ -7,9 +7,9 @@
             newItem.style.display = "none";
         }
 
-        function showEditItem() {
+        function showEditItem(itemId) {
             var editItem = document.getElementById("editItem");
-            var saveItem = document.getElementById("saveItem");
+            var saveItem = document.getElementById(itemId);
             editItem.style.display = "none";
             saveItem.style.display = "inline";
         }
@@ -52,7 +52,7 @@
         echo '<input type="submit" name="'.$row['item_id'].'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
-        echo '<button id="editItem" onclick="showEditItem()">Edit</button>';
+        echo '<button id="'.$row['item_id'].'" onclick="showEditItem()">Edit</button>';
         echo '<button>Delete</button>';
         echo '</br>';
     }
