@@ -10,7 +10,7 @@
     $total = 0;
     foreach($rows as $row) {
         global $total;
-        $sql = "SELECT * FROM Item WHERE item_id = ".$row['foreign_item_id'].";";
+        $sql = "SELECT * FROM Item WHERE foreign_quote_id = ".$row['quote_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $items = $prepared->fetchAll(PDO::FETCH_ASSOC);
