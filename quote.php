@@ -53,13 +53,13 @@
         echo ' ---- ';
         // vvv EDIT ITEM FORM vvv
         echo '<form id="saveItem'.$item_id.'" action="edit_item.php" method="POST" style="display: none;">';
-        echo '<input placeholder="Item Name" name="name" value="'.$lineItem['name'].'" required>';
+        echo '<input placeholder="Item Name" name="name" value="'.$lineItem['item_name'].'" required>';
         echo '<input placeholder="Item Price" name="price" value="'.$price.'" required>';
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
         echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
-        echo '<form action="delete_item.php" method="POST">';
+        echo '<form action="delete_item.php" method="POST" style="display: inline;">';
         echo '<input type="submit" name="'.$item_id.'" value="Delete">';
         echo '</form>';
         echo '</br>';
