@@ -13,6 +13,11 @@
             editItem.style.display = "none";
             saveItem.style.display = "inline";
         }
+
+        function showEditNote(noteId) {
+            var editNote = document.getElementById(itemId);
+            editNote.disabled = false;
+        }
     </script>
 </html>
 
@@ -91,11 +96,11 @@
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $lineItem = $prepared->fetch();
+        $note_id = $row['foreign_note_id'];
         echo '<form style="display: inline;">';
-        echo '<input value="'.$lineItem['text_field'].'" disabled>';
+        echo '<input id='.$note_id.' value="'.$lineItem['text_field'].'" disabled>';
         echo '</form>';
-        echo ' ---- ';
-        echo '<button id="editNote'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
+        echo '<button id="editNote'.$note_id.'" onclick="showEditItem(\''.$note_id.'\')">Edit</button>';
         echo '<button>Delete</button>';
         echo '</br>';
     }
