@@ -71,11 +71,11 @@
     echo '<hr>';
 
     // Display Notes
-    $sql = "DELETE * FROM Quote_Note;";
+    $sql = "DELETE FROM Quote_Note;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
-    $sql = "DELETE * FROM Note;";
+    $sql = "DELETE FROM Note;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
