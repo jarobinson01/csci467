@@ -20,12 +20,13 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_POST['quote_id'], $item_id[0], 1));
 
-    $sql = "SELECT * FROM Quote_Item;";
+    /*$sql = "SELECT * FROM Quote_Item;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo "<br>";
-    print_r($rows);
+    print_r($rows);*/
 
-    //header("Location: quote.php");
+    // Redirect to quote page
+    header("Location: quote.php");
 ?>
