@@ -12,14 +12,14 @@
 
     $sql = "UPDATE Item SET price=:price WHERE id=:id;";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array('price' => $_POST['price'], 'id' => $_SESSION['ITEM_ID']));
+    $prepared->execute(array('price' => $_POST['price'], 'id' => $_SESSION['ITEM_ID']));
 
-    /*$sql = "SELECT * FROM Item;";
+    $sql = "SELECT * FROM Item;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     echo "<br>";
-    print_r($rows);*/
+    print_r($rows);
 
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
