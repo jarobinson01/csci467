@@ -71,13 +71,13 @@
     echo '<hr>';
 
     // Display Notes
-    $sql = "DELETE FROM Quote_Note;";
+    /*$sql = "DELETE FROM Quote_Note;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
-
+                                                DELETES ALL NOTES
     $sql = "DELETE FROM Note;";
     $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
+    $success = $prepared->execute();*/
 
     $sql = "SELECT * FROM Quote_Note WHERE foreign_quote_id = ?;";
     $prepared = $db1->prepare($sql);
