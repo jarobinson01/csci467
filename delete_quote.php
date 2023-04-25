@@ -36,5 +36,5 @@
     print_r($rows);
 
     // Redirect to quote page
-    //header("Location: hq.php");
+    header("Location: hq.php");
 ?>
