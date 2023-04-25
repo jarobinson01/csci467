@@ -16,9 +16,7 @@
 
         function showEditNote(noteId) {
             var editNote = document.getElementById(noteId);
-            var showNote = document.getElementById("showNote" + noteId);
-            editNote.style.display = "none";
-            showNote.style.display = "block";
+            editNote.disabled = false;
         }
     </script>
 </html>
@@ -100,8 +98,7 @@
         $lineItem = $prepared->fetch();
         $note_id = $row['note_id'];
         echo '<form style="display: inline;">';
-        echo '<input id="'.$note_id.'" value="'.$lineItem['text_field'].'" disabled>';
-        echo '<input id="showNote'.$note_id.'" value="'.$lineItem['text_field'].'" style="display: none;">';
+        echo '<input id="'.$note_id.'" value="'.$lineItem['text_field'].'" disabled="false">';
         echo '</form>';
         echo '<button id="editNote'.$note_id.'" onclick="showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<button>Delete</button>';
