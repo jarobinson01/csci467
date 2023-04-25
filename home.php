@@ -2,6 +2,8 @@
     try { // if something goes wrong, an exception is thrown
         include('config.php');
         session_start();
+
+        $_SESSION["QUOTE_ID"] = -1;
     }
     catch(PDOexception $e) { // handle that exception
         echo "Connection to database failed: " . $e->getMessage();
