@@ -16,7 +16,7 @@
 
         function showEditNote(noteId) {
             var editNote = document.getElementById(itemId);
-            editNote.disabled = false;
+            editNote.removeAttr("disabled");
         }
     </script>
 </html>
