@@ -4,7 +4,7 @@
     include('config.php');
 
     $item_id = key($_POST);
-    echo $item_id;
+    print_r($_POST);
 
     /*$sql = "UPDATE Item SET name=";
     $prepared = $db1->prepare($sql);
