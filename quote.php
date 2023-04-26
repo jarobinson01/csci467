@@ -19,7 +19,7 @@
             var note = document.getElementById(noteId);
             var editNote = document.getElementById("editNote" + noteId);
             var saveNote = document.getElementById("editNote" + noteId);
-            editNote.disabled = false;
+            note.disabled = false;
             editNote.style.display = "none";
             saveNote.style.display = "inline";
         }
@@ -133,10 +133,10 @@
         echo '<input id="'.$note_id.'" value="'.$note['text_field'].'" disabled>';
         echo '</form>';
         // vvv EDIT NOTE FORM vvv
-        /*echo '<form id="saveNote'.$note_id.'" action="edit_note.php" method="POST" style="display: none;">';
+        echo '<form id="saveNote'.$note_id.'" action="edit_note.php" method="POST" style="display: none;">';
         echo '<input placeholder="Note:" name="note" value="'.$note['text_field'].'">';
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
-        echo '</form>';*/
+        echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
         echo '<button type="button" id="editNote'.$note_id.'" onclick="return showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<form action="delete_note.php" method="POST" style="display: inline;">';
