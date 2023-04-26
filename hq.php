@@ -9,7 +9,7 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
     $total = 0;
     foreach($rows as $row) {
-        global $total;
+        /*global $total;
         $sql = "SELECT * FROM Quote_Item WHERE foreign_quote_id = ".$row['quote_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
@@ -26,7 +26,7 @@
 
         $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
         $prepared = $db1->prepare($sql);
-        $success = $prepared->execute(array('price' => $total, 'id' => $row['quote_id']));
+        $success = $prepared->execute(array('price' => $total, 'id' => $row['quote_id']));*/
 
         echo '<tr>';
         echo '<td>'.$row['quote_id'].'</td>';
