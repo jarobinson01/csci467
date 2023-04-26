@@ -84,8 +84,8 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $quote = $prepared->fetch();
 
-    $i = $prepared->fetchAll(PDO::FETCH_ASSOC);
-    print_r($i);
+    //$i = $prepared->fetchAll(PDO::FETCH_ASSOC);
+    print_r($quote);
 
     echo '<hr>';
     echo '<h3>Total Quote Price:      $'.$quote['price'].'</h3>';
