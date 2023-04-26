@@ -12,6 +12,9 @@
 
     $price = $quote['price'];
 
+    echo $_POST['discount']."<br>";
+    echo $price."<br>";
+
     //isset($_POST['discount_type']);
 
     if($_POST['discount_type'] = "percentage") {
@@ -19,6 +22,8 @@
     } else {
         $price = $price - $_POST['discount'];
     }
+
+    echo $price."<br>";
 
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
