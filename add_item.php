@@ -22,6 +22,18 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID'], $item_id[0]));
 
+    $sql = "SELECT * FROM Quote WHERE quote_id=?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+    $quote = $prepared->fetch();
+
+    $price = $quote['price'];
+    $price = $price + $_POST['price'];
+
+    $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
+    $prepared = $db1->prepare($sql);
+    $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
+
     /*$sql = "SELECT * FROM Quote_Item;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
