@@ -3,7 +3,7 @@
     
     include('config.php');
 
-    echo "<h3>Email for Quote #".$_SESSION['QUOTE_ID']." sent<h3><br><br>";
+    echo "<h3>Email for Quote #".$_SESSION['QUOTE_ID']." sent</h3><br><br>";
 
     // Update quote to sanctioned
     $sql = "UPDATE Quote SET status='Sanctioned' WHERE quote_id=:id;";
