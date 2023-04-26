@@ -6,9 +6,9 @@
     $item_id = key($_POST);
 
     // Store item price for quote price calculations
-    $sql = "SELECT * FROM Item WHERE item_id=:id;";
+    $sql = "SELECT * FROM Item WHERE item_id=?;";
     $prepared = $db1->prepare($sql);
-    $prepared->execute(array('id' => $_SESSION['ITEM_ID']));
+    $prepared->execute(array($item_id));
     $item = $prepared->fetch();
     $item_price = $item['price'];
 
@@ -30,13 +30,11 @@
 
     $price = $quote['price'];
     $price = $price - $item_price;
-    echo $item_price."<br>";
-    echo $price;
 
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
-    //header("Location: quote.php");
+    header("Location: quote.php");
 ?>
