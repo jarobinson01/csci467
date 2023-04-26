@@ -20,11 +20,6 @@
         $new_price = $old_price;
     }
 
-    // Reject values greater than max item price
-    if($new_price > 99999.99) {
-        $new_price = $old_price;
-    }
-
     $diff = $new_price - $old_price;
 
     // Update item name
