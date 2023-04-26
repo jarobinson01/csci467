@@ -3,6 +3,8 @@
 
     include('config.php');
 
+    echo $_POST['price'];
+
     // Get current id value for the Item that will be added
     $sql = "SELECT `AUTO_INCREMENT`
             FROM  INFORMATION_SCHEMA.TABLES
@@ -36,5 +38,5 @@
     $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
