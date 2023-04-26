@@ -16,7 +16,7 @@
 
     if($_POST['discount_type'] = "percentage") {
         $price = $price * (100 - $_POST['discount']) / 100;
-    } else if ($_POST['discount_type'] = "amount") {
+    } else {
         $price = $price - $_POST['discount'];
     }
 
@@ -24,5 +24,5 @@
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
 
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
