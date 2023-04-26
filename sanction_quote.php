@@ -42,7 +42,7 @@
     $msg = wordwrap($msg,100);
 
     // send email
-    mail("jeremyakiva@gmail.com","Your quote has been completed",$msg);
+    mail($quote['customerEmail'],"Your quote has been completed",$msg);
 
     // Redirect to hq page
     echo '<hr>';
