@@ -128,9 +128,9 @@
         echo '<input id="'.$note_id.'" value="'.$lineItem['text_field'].'" disabled>';
         echo '</form>';
         echo '<button id="editNote'.$note_id.'" onclick="showEditNote(\''.$note_id.'\')">Edit</button>';
-        //echo '<form action="delete_note.php" method="POST" style="display: inline;">';
-        //echo '<input type="submit" name="'.$note_id.'" value="Delete">';
-        //echo '</form>';
+        echo '<form action="delete_note.php" method="POST" style="display: inline;">';
+        echo '<input type="submit" name="'.$note_id.'" value="Delete">';
+        echo '</form>';
         echo '</br>';
     }
     echo '<form action="add_note.php" method="POST">';
