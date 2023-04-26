@@ -58,6 +58,9 @@
         echo '<input placeholder="Item Name" name="name" value="'.$lineItem['item_name'].'" required>';
         echo '<input placeholder="Item Price" name="price" value='.number_format($price, 2, '.', '').' required>';
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
+        echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
+        echo '<form action="delete_item.php" method="POST" style="display: inline;">';
+        echo '<input type="submit" name="'.$item_id.'" value="Delete">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
         $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
@@ -67,17 +70,12 @@
         if($quote['status'] == 'Finalized') {
             echo ' ---- ';
             echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
-            echo '<form action="delete_item.php" method="POST" style="display: inline;">';
+            echo '<form id="editItem" action="delete_item.php" method="POST" style="display: inline;">';
             echo '<input type="submit" name="'.$item_id.'" value="Delete">';
             echo '</form>';
         }
         echo '</br>';
     }
-
-    $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
-    $quote = $prepared->fetch();
 
     // Add new line items
     if($quote['status'] == 'Finalized') {
