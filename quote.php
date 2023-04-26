@@ -140,7 +140,7 @@
         // ^^^^^^^^^^^^^^^^^^^^^^
         echo '<button type="button" id="editNote'.$note_id.'" onclick="return showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<form action="delete_note.php" method="POST" style="display: inline;">';
-        echo '<input type="submit" name="'.$note_id.'" value="Delete">';
+        echo '<input id="'.$note_id.'" type="submit" name="'.$note_id.'" value="Delete">';
         echo '</form>';
         echo '</br>';
     }
