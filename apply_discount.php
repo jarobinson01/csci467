@@ -3,7 +3,12 @@
 
     include('config.php');
 
-    $discount = (float)$_POST['discount'];
+    $discount = $_POST['discount'];
+
+    // Reject negative and non-nunmeric values
+    if($discount < 0 || !is_numeric($discount)) {
+        $discount = 0;
+    }
 
     // Select current quote
     $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
@@ -15,9 +20,13 @@
     $price = $quote['price'];
 
     if($_POST['discount_type'] == "percentage") {
-        $price = $price * (100 - $_POST['discount']) / 100;
+        $price = $price * (100 - $discount) / 100;
     } else {
-        $price = $price - $_POST['discount'];
+        $price = $price - $discount;
+    }
+
+    if($price < 0) {
+        $price = 0;
     }
 
     // Apply discount to database
