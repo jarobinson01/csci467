@@ -15,6 +15,16 @@
     $success = $prepared->execute();
     $item_id = $prepared->fetch();
 
+    /*/ Reject negative and non-nunmeric values
+    if($item_price < 0 || !is_numeric($item_price)) {
+        header("Location: quote.php");
+    }
+
+    // Reject values greater than price max (99999.99)
+    if($item_price > 99999.99) {
+        header("Location: quote.php");
+    }*/
+
     // Insert row into Item table
     $sql = "INSERT INTO Item (price, item_name) VALUES (?, ?);";
     $prepared = $db1->prepare($sql);
@@ -39,5 +49,5 @@
     $prepared->execute(array($price, $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
