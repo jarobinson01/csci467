@@ -81,6 +81,14 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $quote = $prepared->fetch();
 
+    // Set quote price to 0 if it is less than 1
+    $price = $quote['price'];
+    if($price < 0) {
+        $sql = "UPDATE Quote SET price=? WHERE quote_id=?;";
+        $prepared = $db1->prepare($sql);
+        $prepared->execute(array('price' => 0, 'id' => $_SESSION['QUOTE_ID']));
+    }
+
     echo '<hr>';
     echo '<h3>Total Quote Price:      $'.number_format($quote['price'], 2, '.', '').'</h3>';
     echo '<form action="apply_discount.php" method="POST">';
