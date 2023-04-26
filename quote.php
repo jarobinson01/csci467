@@ -74,12 +74,14 @@
     }
 
     // Add new line items
-    echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
-    echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
-    echo '<input placeholder="Item Name" name="name" required>';
-    echo '<input placeholder="Item Price" name="price" required>';
-    echo '<input type="submit" value="Add Item">';
-    echo '</form>';
+    if($quote['status'] == 'Finalized') {
+        echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
+        echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
+        echo '<input placeholder="Item Name" name="name" required>';
+        echo '<input placeholder="Item Price" name="price" required>';
+        echo '<input type="submit" value="Add Item">';
+        echo '</form>';
+    }
 
     // Display Totals and Discounts
     $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
