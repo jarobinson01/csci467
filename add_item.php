@@ -3,6 +3,8 @@
 
     include('config.php');
 
+    $item_price = $_POST['price'];
+
     // Reject negative and non-nunmeric values
     if($item_price < 0 || !is_numeric($item_price)) {
         header("Location: quote.php");
@@ -13,7 +15,6 @@
         header("Location: quote.php");
     }
 
-    $item_price = $_POST['price'];
     $item_price = number_format($item_price, 2, '.', '');
 
     // Get current id value for the Item that will be added
