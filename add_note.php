@@ -23,13 +23,6 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID'], $note_id[0]));
 
-    $sql = "SELECT * FROM Quote_Note;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
-    $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    echo "<br>";
-    print_r($rows);
-
     // Redirect to quote page
     header("Location: quote.php");
 ?>

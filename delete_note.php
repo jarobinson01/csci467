@@ -17,13 +17,6 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($note_id));
 
-    $sql = "SELECT * FROM Note;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
-    $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    echo "<br>";
-    print_r($rows);
-
     // Redirect to quote page
     header("Location: quote.php");
 ?>

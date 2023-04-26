@@ -71,9 +71,7 @@
     // Add new line items
     echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
     echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
-    //echo '<input type="hidden" name="quote_id" value="'.$QUOTE_ID.'">'; //* CAN DELETE LATER IF QUOTE_ID WORKS */
     echo '<input placeholder="Item Name" name="name" required>';
-    //echo '<input placeholder="Item Quantity">';
     echo '<input placeholder="Item Price" name="price" required>';
     echo '<input type="submit" value="Add Item">';
     echo '</form>';
@@ -98,14 +96,6 @@
     echo '<hr>';
 
     // Display Notes
-    /*$sql = "DELETE FROM Quote_Note;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();
-                                                DELETES ALL NOTES
-    $sql = "DELETE FROM Note;";
-    $prepared = $db1->prepare($sql);
-    $success = $prepared->execute();*/
-
     $sql = "SELECT * FROM Quote_Note WHERE foreign_quote_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
@@ -134,6 +124,7 @@
     echo '</form>';
     echo '<br><br><br><br>';
 
+    // Sanction quote
     echo '<form action="sanction_quote.php" method="POST">';
     echo '<input type="submit" value="SANCTION QUOTE" style="color:red;">';
     echo '</form>';
