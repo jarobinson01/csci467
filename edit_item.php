@@ -22,6 +22,7 @@
     $prepared->execute(array('id' => $_SESSION['ITEM_ID']));
     $item = $prepared->fetch();
     $old_price = $item['price'];
+    echo $old_price;
     $diff = $_POST['price'] - $old_price;
 
     $sql = "SELECT * FROM Quote WHERE quote_id=?;";
@@ -31,6 +32,7 @@
 
     $price = $quote['price'];
     $price = $price + $diff;
+    echo $diff;
 
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
