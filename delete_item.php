@@ -30,11 +30,12 @@
 
     $price = $quote['price'];
     $price = $price - $item_price;
+    echo $price;
 
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>

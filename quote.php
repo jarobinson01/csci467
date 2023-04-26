@@ -49,8 +49,7 @@
         $total += $price;
 
         echo '<tr>';
-        echo '<td>Quote ID: '.$row['foreign_quote_id'].'</td>';
-        echo '<td> --- Item Name: '.$lineItem['item_name'].'</td>';
+        echo '<td> Item Name: '.$lineItem['item_name'].'</td>';
         echo '<td> ---  Price: $'.$price.'</td>';
         echo '</tr>';
         echo ' ---- ';
