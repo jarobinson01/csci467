@@ -38,11 +38,11 @@
 
     echo $msg;
 
-    // use wordwrap() if lines are longer than 70 characters
+    // use wordwrap() if lines are longer than 100 characters
     $msg = wordwrap($msg,100);
 
     // send email
-    mail($quote['customerEmail'],"Your quote has been completed",$msg);
+    mail("jeremyakiva@gmail.com","Your quote has been completed",$msg);
 
     // Redirect to hq page
     echo '<hr>';
