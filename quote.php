@@ -21,7 +21,7 @@
     </script>
 </html>
 
-<?php
+<?php.÷/
     session_start();
 
     include('config.php');
@@ -50,7 +50,7 @@
 
         echo '<tr>';
         echo '<td> Item Name: '.$lineItem['item_name'].'</td>';
-        echo '<td> ---  Price: $'.$price.'</td>';
+        echo '<td> ---  Price: $'.number_format($price, 2, '.', '').'</td>';
         echo '</tr>';
         echo ' ---- ';
         // vvv EDIT ITEM FORM vvv
