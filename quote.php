@@ -84,6 +84,9 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $quote = $prepared->fetch();
 
+    $i = $prepared->fetchAll(PDO::FETCH_ASSOC);
+    print_r($i);
+
     echo '<hr>';
     echo '<h3>Total Quote Price:      $'.$quote['price'].'</h3>';
     echo '<form action="apply_discount.php" method="POST">';
