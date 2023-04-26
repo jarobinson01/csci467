@@ -5,7 +5,7 @@
 
     echo "<h3>Email for Quote #".$_SESSION['QUOTE_ID']." sent</h3><br>";
 
-    /*// Update quote to sanctioned
+    // Update quote to sanctioned
     $sql = "UPDATE Quote SET status='Ordered' WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('id' => $_SESSION['QUOTE_ID']));
@@ -47,5 +47,5 @@
     echo '<hr>';
     echo '<form action="hq.php">';
     echo '<input type="submit" value="Back to HQ">';
-    echo '</form>';*/
+    echo '</form>';
 ?>
