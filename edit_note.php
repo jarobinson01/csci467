@@ -12,5 +12,5 @@
     $prepared->execute(array($_POST['note'], $_SESSION['NOTE_ID']));
 
     // Redirect to quote page
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
