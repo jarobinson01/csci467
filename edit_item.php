@@ -22,7 +22,7 @@
     $prepared->execute(array('id' => $_SESSION['ITEM_ID']));
     $item = $prepared->fetch();
     $old_price = $item['price'];
-    echo $old_price;
+    echo $old_price."<br>";
     $diff = $_POST['price'] - $old_price;
 
     $sql = "SELECT * FROM Quote WHERE quote_id=?;";
