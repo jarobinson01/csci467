@@ -151,7 +151,7 @@
         echo '<input type="submit" value="SANCTION QUOTE" style="color:red;">';
         echo '</form>';
     } else if($quote['status'] == 'Sanctioned') {
-        echo '<form action="sanction_quote.php" method="POST">';
+        echo '<form action="order_quote.php" method="POST">';
         echo '<input type="submit" value="FINALIZE ORDER" style="color:blue;">';
         echo '</form>';
     }
