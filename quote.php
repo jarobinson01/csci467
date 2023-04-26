@@ -122,11 +122,17 @@
         $sql = "SELECT * FROM Note WHERE note_id = ".$row['note_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
-        $lineItem = $prepared->fetch();
+        $note = $prepared->fetch();
         $note_id = $row['note_id'];
         echo '<form style="display: inline;">';
-        echo '<input id="'.$note_id.'" value="'.$lineItem['text_field'].'" disabled>';
+        echo '<input id="'.$note_id.'" value="'.$note['text_field'].'" disabled>';
         echo '</form>';
+        // vvv EDIT NOTE FORM vvv
+        echo '<form id="saveNote'.$note_id.'" action="edit_note.php" method="POST" style="display: none;">';
+        echo '<input placeholder="Note:" name="note" value="'.$note['text_field'].'" maxlength="250" required>';
+        echo '<input type="submit" name="'.$note_id.'" value="Save Changes">';
+        echo '</form>';
+        // ^^^^^^^^^^^^^^^^^^^^^
         echo '<button id="editNote'.$note_id.'" onclick="showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<form action="delete_note.php" method="POST" style="display: inline;">';
         echo '<input type="submit" name="'.$note_id.'" value="Delete">';
