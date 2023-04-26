@@ -31,6 +31,10 @@
     $price = $quote['price'];
     $price = $price - $item_price;
 
+    if($price < 0) {
+        $price = 0;
+    }
+
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
