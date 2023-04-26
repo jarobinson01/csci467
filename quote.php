@@ -83,6 +83,7 @@
 
     // Set quote price to 0 if it is less than 1
     $price = $quote['price'];
+    echo $price;
     if($price < 0) {
         $sql = "UPDATE Quote SET price=? WHERE quote_id=?;";
         $prepared = $db1->prepare($sql);
