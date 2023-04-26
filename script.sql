@@ -6,6 +6,10 @@ DROP TABLE Quote;
 DROP TABLE Note;
 DROP TABLE Item;
 
+/* 
+Changed QUOTE price type to decimal 
+Removed quantities
+*/
 
 CREATE TABLE User(
 	user_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -21,7 +25,7 @@ CREATE TABLE User(
 CREATE TABLE Quote(
 	quote_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	customer INTEGER NOT NULL,
-	price FLOAT NOT NULL DEFAULT(0),
+	price DECIMAL(7,2) NOT NULL DEFAULT(0),
 	customerEmail CHAR(50) NOT NULL DEFAULT 'example@gmail.com',
 	status CHAR(15) NOT NULL DEFAULT 'Unfinalized'
 );
