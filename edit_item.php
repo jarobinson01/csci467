@@ -37,5 +37,5 @@
     $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
-    header("Location: quote.php");
+    //header("Location: quote.php");
 ?>
