@@ -77,6 +77,11 @@
         echo '</br>';
     }
 
+    $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+    $quote = $prepared->fetch();
+
     // Add new line items
     if($quote['status'] == 'Finalized') {
         echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
@@ -86,8 +91,6 @@
         echo '<input type="submit" value="Add Item">';
         echo '</form>';
     }
-
-    // Display Totals and Discounts
 
     // Set quote price to 0 if it is less than 1
     $price = $quote['price'];
