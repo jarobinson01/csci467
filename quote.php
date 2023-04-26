@@ -60,11 +60,13 @@
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
-        echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
-        echo '<form action="delete_item.php" method="POST" style="display: inline;">';
-        echo '<input type="submit" name="'.$item_id.'" value="Delete">';
-        echo '</form>';
-        echo '</br>';
+        if($row['status'] == 'Finalized') {
+            echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
+            echo '<form action="delete_item.php" method="POST" style="display: inline;">';
+            echo '<input type="submit" name="'.$item_id.'" value="Delete">';
+            echo '</form>';
+            echo '</br>';
+        }
     }
 
     // Add new line items
@@ -131,8 +133,19 @@
     echo '</form>';
     echo '<br><br><br><br>';
 
-    // Sanction quote
-    echo '<form action="sanction_quote.php" method="POST">';
-    echo '<input type="submit" value="SANCTION QUOTE" style="color:red;">';
-    echo '</form>';
+    // Sanction or process quote
+    $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+    $quote = $prepared->fetch();
+
+    if($quote['status'] == 'Finalized') {
+        echo '<form action="sanction_quote.php" method="POST">';
+        echo '<input type="submit" value="SANCTION QUOTE" style="color:red;">';
+        echo '</form>';
+    } else if($quote['status'] == 'Sanctioned') {
+        echo '<form action="sanction_quote.php" method="POST">';
+        echo '<input type="submit" value="FINALIZE ORDER" style="color:blue;">';
+        echo '</form>';
+    }
 ?>

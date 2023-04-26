@@ -3,7 +3,7 @@
     echo '<h1>HQ</h1>';
 
     // Print finalized quotes
-    $sql = "SELECT * FROM Quote WHERE status = 'Finalized';";
+    $sql = "SELECT * FROM Quote WHERE status = 'Finalized' OR status = 'Sanctioned';";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
 
