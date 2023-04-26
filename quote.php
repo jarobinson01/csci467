@@ -16,10 +16,8 @@
         }
 
         function showEditNote(noteId) {
-            var note = document.getElementsByClassName(noteId);
             var editNote = document.getElementById("editNote" + noteId);
             var saveNote = document.getElementById("saveNote" + noteId);
-            note.disabled = false;
             editNote.style.display = "none";
             saveNote.style.display = "inline";
         }
@@ -130,7 +128,7 @@
         $note = $prepared->fetch();
         $note_id = $row['note_id'];
         echo '<form style="display: inline;">';
-        echo '<input class="'.$note_id.'" value="'.$note['text_field'].'" disabled>';
+        echo '<input class="editNote'.$note_id.'" value="'.$note['text_field'].'" disabled>';
         echo '</form>';
         // vvv EDIT NOTE FORM vvv
         echo '<form id="saveNote'.$note_id.'" action="edit_note.php" method="POST" style="display: none;">';
@@ -138,9 +136,9 @@
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
-        echo '<button type="button" id="editNote'.$note_id.'" onclick="return showEditNote(\''.$note_id.'\')">Edit</button>';
+        echo '<button type="button" class="editNote'.$note_id.'" onclick="return showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<form action="delete_note.php" method="POST" style="display: inline;">';
-        echo '<input class="'.$note_id.'" type="submit" name="'.$note_id.'" value="Delete">';
+        echo '<input id="'.$note_id.'" type="submit" name="'.$note_id.'" value="Delete">';
         echo '</form>';
         echo '</br>';
     }
