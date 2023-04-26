@@ -7,7 +7,7 @@
     $success = $prepared->execute();
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    $total = 0;
+    //$total = 0;
     foreach($rows as $row) {
         /*global $total;
         $sql = "SELECT * FROM Quote_Item WHERE foreign_quote_id = ".$row['quote_id'].";";
@@ -31,7 +31,7 @@
         echo '<tr>';
         echo '<td>'.$row['quote_id'].'</td>';
         echo '<td> -    Cutsomter '.$row['customer'].'</td>';
-        echo '<td> ---  Price: $'.$total.'</td>';
+        echo '<td> ---  Price: $'.$row['price'].'</td>';
         echo '<td> ---  Customer Email: '.$row['customerEmail'].'</td>';
         echo '<td> ---  Quote Status: '.$row['status'].'</td>';
         echo '</tr>';
