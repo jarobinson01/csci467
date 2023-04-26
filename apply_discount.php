@@ -1,0 +1,28 @@
+<?php
+    session_start();
+
+    include('config.php');
+
+    $discount = (float)$_POST['discount'];
+
+    $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+    $quote = $prepared->fetch();
+
+    $price = $quote['price'];
+
+    //isset($_POST['discount_type']);
+
+    if($_POST['discount_type'] = "percentage") {
+        $price *= (100 - $_POST['discount']);
+    } else {
+        $price -= $_POST['discount'];
+    }
+
+    $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
+    $prepared = $db1->prepare($sql);
+    $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
+
+    header("Location: quote.php");
+?>

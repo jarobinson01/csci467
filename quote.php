@@ -83,7 +83,7 @@
     echo '<h3>Total Quote Price:      $'.$total.'</h3>';
     echo '<form action="apply_discount.php" method="POST">';
     echo '<input placeholder="Discount" name="discount" required>';
-    echo '<input type="radio" id="percentage" name="discount_type" value="percentage">';
+    echo '<input type="radio" id="percentage" name="discount_type" value="percentage" checked>';
     echo '<label for="percentage">percentage</label>';
     echo '<input type="radio" id="amount" name="discount_type" value="amount">';
     echo '<label for="amount">amount</label>';
