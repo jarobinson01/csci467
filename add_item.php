@@ -4,7 +4,7 @@
     include('config.php');
 
     echo $_POST['price']."<br>";
-    echo number_format($quote['price'], 2, '.', '');
+    echo number_format($_POST['price'], 2, '.', '');
 
     // Get current id value for the Item that will be added
     $sql = "SELECT `AUTO_INCREMENT`
