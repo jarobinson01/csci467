@@ -67,7 +67,7 @@
         $quote = $prepared->fetch();
         if($quote['status'] == 'Finalized') {
             echo ' ---- ';
-            echo '<button id="editItem'.$item_id.'" onclick="return showEditItem(\''.$item_id.'\')">Edit</button>';
+            echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
             echo '<form action="delete_item.php" method="POST" style="display: inline;">';
             echo '<input type="submit" name="'.$item_id.'" value="Delete">';
             echo '</form>';
@@ -128,7 +128,7 @@
         echo '<form style="display: inline;">';
         echo '<input id="'.$note_id.'" value="'.$note['text_field'].'" disabled>';
         echo '</form>';
-        echo '<button id="editNote'.$note_id.'" onclick="showEditNote(\''.$note_id.'\')">Edit</button>';
+        echo '<button id="editNote'.$note_id.'" onclick="return showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<form action="delete_note.php" method="POST" style="display: inline;">';
         echo '<input type="submit" name="'.$note_id.'" value="Delete">';
         echo '</form>';
