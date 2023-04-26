@@ -17,7 +17,7 @@
 
     echo $_POST['discount_type']."<br>";
 
-    if($_POST['discount_type'] = "percentage") {
+    if($_POST['discount_type'] == "percentage") {
         $price = $price * (100 - $_POST['discount']) / 100;
     } else {
         $price = $price - $_POST['discount'];
