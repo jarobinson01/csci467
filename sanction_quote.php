@@ -3,7 +3,7 @@
     
     include('config.php');
 
-    echo "Email for Quote #".$_SESSION['QUOTE_ID']." sent";
+    echo "Email for Quote #".$_SESSION['QUOTE_ID']." sent<br>";
 
     // Update quote to sanctioned
     $sql = "UPDATE Quote SET status='Sanctioned' WHERE quote_id=:id;";
@@ -17,8 +17,9 @@
     $quote = $prepared->fetch();
 
     // the message
-    $msg = "QUOTE #".$_SESSION['QUOTE_ID']."\n";
+    $msg = "QUOTE #".$_SESSION['QUOTE_ID']."    \n";
     
+
     $sql = "SELECT * FROM Quote_Item WHERE foreign_quote_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
@@ -30,10 +31,10 @@
         $success = $prepared->execute(array($item['foreign_item_id']));
         $i = $prepared->fetch();
 
-        $msg .= $i['item_name']."\n";
+        $msg .= " - ".$i['item_name']."\n";
     }
 
-    $msg .= "\nPrice (with discounts applied): $".$quote['price'];
+    $msg .= "\n\n ---- Price (with discounts applied): $".$quote['price'];
 
     echo $msg;
 
@@ -44,6 +45,7 @@
     mail($quote['customerEmail'],"Your quote has been completed",$msg);
 
     // Redirect to hq page
+    echo '<hr>';
     echo '<form action="hq.php">';
     echo '<input type="submit" value="Back to HQ">';
     echo '</form>';
