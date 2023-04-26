@@ -4,12 +4,23 @@
     include('config.php');
 
     $item_price = $_POST['price'];
+
+    // Reject negative and non-nunmeric values
+    if($item_price < 0 || !is_numeric($new_price)) {
+        header("Location: quote.php");
+    }
+
+    // Reject values greater than price max (99999.99)
+    if($new_price > 99999.99) {
+        header("Location: quote.php");
+    }
+
     $item_price = number_format($item_price, 2, '.', '');
 
     // Get current id value for the Item that will be added
     $sql = "SELECT `AUTO_INCREMENT`
             FROM  INFORMATION_SCHEMA.TABLES
-            WHERE TABLE_SCHEMA = 'z1923374'
+            WHERE TABLE_SCHEMA = 'z1934222'
             AND   TABLE_NAME   = 'Item';";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
@@ -39,5 +50,5 @@
     $prepared->execute(array($price, $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
-    //header("Location: quote.php");
+    header("Location: quote.php");
 ?>
