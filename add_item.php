@@ -8,7 +8,7 @@
 
     $item_price = $_POST['price'];
     $item_price = number_format($item_price, 2, '.', '');
-    echo $item_price;
+    //echo $item_price;
 
     // Get current id value for the Item that will be added
     $sql = "SELECT `AUTO_INCREMENT`
@@ -37,12 +37,12 @@
 
     $price = $quote['price'];
     $price = $price + $item_price;
-    echo "<br>".$price;
+    //echo "<br>".$price;
 
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
-    //header("Location: quote.php");
+    header("Location: quote.php");
 ?>
