@@ -18,7 +18,7 @@
         function showEditNote(noteId) {
             var note = document.getElementById(noteId);
             var editNote = document.getElementById("editNote" + noteId);
-            var saveNote = document.getElementById("editNote" + noteId);
+            var saveNote = document.getElementById("saveNote" + noteId);
             note.disabled = false;
             editNote.style.display = "none";
             saveNote.style.display = "inline";
