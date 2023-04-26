@@ -44,5 +44,7 @@
     mail($quote['customerEmail'],"Your quote has been completed",$msg);
 
     // Redirect to hq page
-    header("Location: hq.php");
+    echo '<form action="hq.php">';
+    echo '<input type="submit" value="Back to HQ">';
+    echo '</form>';
 ?>
