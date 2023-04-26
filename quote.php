@@ -52,9 +52,9 @@
         echo '<td> Item Name: '.$lineItem['item_name'].'</td>';
         echo '<td> ---  Price: $'.number_format($price, 2, '.', '').'</td>';
         echo '</tr>';
-        echo ' ---- ';
         // vvv EDIT ITEM FORM vvv
         echo '<form id="saveItem'.$item_id.'" action="edit_item.php" method="POST" style="display: none;">';
+        echo ' ---- ';
         echo '<input placeholder="Item Name" name="name" value="'.$lineItem['item_name'].'" required>';
         echo '<input placeholder="Item Price" name="price" value='.number_format($price, 2, '.', '').' required>';
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
