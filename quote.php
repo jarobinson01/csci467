@@ -79,8 +79,13 @@
     echo '</form>';
 
     // Display Totals and Discounts
+    $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+    $quote = $prepared->fetch();
+
     echo '<hr>';
-    echo '<h3>Total Quote Price:      $'.$total.'</h3>';
+    echo '<h3>Total Quote Price:      $'.$quote['price'].'</h3>';
     echo '<form action="apply_discount.php" method="POST">';
     echo '<input placeholder="Discount" name="discount" required>';
     echo '<input type="radio" id="percentage" name="discount_type" value="percentage" checked>';
