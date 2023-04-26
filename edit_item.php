@@ -16,7 +16,7 @@
     $old_price = $item['price'];
 
     // Reject negative values
-    if($new_price < 0 || !is_int($new_price)) {
+    if($new_price < 0 || !is_numeric($new_price)) {
         $new_price = $old_price;
     }
 
