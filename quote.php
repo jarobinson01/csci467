@@ -60,7 +60,11 @@
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
-        if($row['status'] == 'Finalized') {
+        $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
+        $prepared = $db1->prepare($sql);
+        $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+        $quote = $prepared->fetch();
+        if($quote['status'] == 'Finalized') {
             echo '<button id="editItem'.$item_id.'" onclick="showEditItem(\''.$item_id.'\')">Edit</button>';
             echo '<form action="delete_item.php" method="POST" style="display: inline;">';
             echo '<input type="submit" name="'.$item_id.'" value="Delete">';
