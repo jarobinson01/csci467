@@ -3,12 +3,8 @@
 
     include('config.php');
 
-    //echo $_POST['price']."<br>";
-    //echo number_format($_POST['price'], 2, '.', '');
-
     $item_price = $_POST['price'];
     $item_price = number_format($item_price, 2, '.', '');
-    //echo $item_price;
 
     // Get current id value for the Item that will be added
     $sql = "SELECT `AUTO_INCREMENT`
@@ -39,9 +35,9 @@
     $price = $price + $item_price;
     //echo "<br>".$price;
 
-    $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
+    $sql = "UPDATE Quote SET price=? WHERE quote_id=?;";
     $prepared = $db1->prepare($sql);
-    $prepared->execute(array('price' => $price, 'id' => $_SESSION['QUOTE_ID']));
+    $prepared->execute(array($price, $_SESSION['QUOTE_ID']));
 
     // Redirect to quote page
     header("Location: quote.php");
