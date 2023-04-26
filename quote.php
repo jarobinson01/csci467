@@ -15,8 +15,10 @@
         }
 
         function showEditNote(noteId) {
-            var editNote = document.getElementById(noteId);
-            editNote.disabled = false;
+            var editNote = document.getElementById("editNote" + noteId);
+            var saveNote = document.getElementById("saveNote" + noteId);
+            editNote.style.display = "none";
+            saveNote.style.display = "inline";
         }
     </script>
 </html>
@@ -125,7 +127,7 @@
         $note = $prepared->fetch();
         $note_id = $row['note_id'];
         echo '<form style="display: inline;">';
-        echo '<input id="'.$note_id.'" value="'.$note['text_field'].'" disabled>';
+        echo '<input value="'.$note['text_field'].'" disabled>';
         echo '</form>';
         // vvv EDIT NOTE FORM vvv
         echo '<form id="saveNote'.$note_id.'" action="edit_note.php" method="POST" style="display: none;">';
