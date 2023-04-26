@@ -86,7 +86,7 @@
     if($price < 0) {
         $sql = "UPDATE Quote SET price=? WHERE quote_id=?;";
         $prepared = $db1->prepare($sql);
-        $prepared->execute(array('price' => 0, 'id' => $_SESSION['QUOTE_ID']));
+        $prepared->execute(array(0, $_SESSION['QUOTE_ID']));
     }
 
     echo '<hr>';
