@@ -11,13 +11,6 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_POST['note'], $_SESSION['NOTE_ID']));
 
-    if ($success){
-		echo "Success";
-	}
-	else {
-		echo "Fail";
-	}
-
     // Redirect to quote page
     header("Location: quote.php");
 ?>
