@@ -56,7 +56,7 @@
         // vvv EDIT ITEM FORM vvv
         echo '<form id="saveItem'.$item_id.'" action="edit_item.php" method="POST" style="display: none;">';
         echo '<input placeholder="Item Name" name="name" value="'.$lineItem['item_name'].'" required>';
-        echo '<input placeholder="Item Price" name="price" value="'.$price.'" required>';
+        echo '<input placeholder="Item Price" name="price" value="'.number_format($price, 2, '.', '').'" required>';
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^

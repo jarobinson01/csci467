@@ -7,7 +7,7 @@ DROP TABLE Note;
 DROP TABLE Item;
 
 /* 
-Changed QUOTE price type to decimal 
+Changed Item price type to float 
 Removed quantities
 */
 
@@ -37,7 +37,7 @@ CREATE TABLE Note(
 
 CREATE TABLE Item(
 	item_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	price DECIMAL(7,2) NOT NULL,
+	price FLOAT NOT NULL,
 	item_name CHAR(20) NOT NULL
 );
 
