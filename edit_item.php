@@ -16,7 +16,7 @@
     $old_price = $item['price'];
 
     // Reject negative values
-    if($new_price < 0) {
+    if($new_price < 0 || !is_int($new_price)) {
         $new_price = $old_price;
     }
 
@@ -40,6 +40,10 @@
 
     $quote_price = $quote['price'];
     $quote_price = $quote_price + $diff;
+
+    if($quote_price < 0) {
+        $quote_price = 0;
+    }
 
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
