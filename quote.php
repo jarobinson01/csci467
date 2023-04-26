@@ -16,7 +16,7 @@
 
         function showEditNote(noteId) {
             var editNote = document.getElementById(noteId);
-            editNote.style.disabled = false;
+            editNote.disabled = false;
         }
     </script>
 </html>
