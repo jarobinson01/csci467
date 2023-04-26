@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <script>
         function showAddItem() {
@@ -14,21 +15,15 @@
             saveItem.style.display = "inline";
         }
 
-        /*function showEditNote(noteId) {
+        function showEditNote(noteId) {
             var editNote = document.getElementById(noteId);
             editNote.disabled = false;
-        }*/
+        }
     </script>
 </html>
 
 <?php
     session_start();
-    echo "<script>";
-    echo "function showEditNote(noteId) {";
-    echo "    var editNote = document.getElementById(noteId);";
-    echo "    editNote.disabled = false;";
-    echo "}";
-    echo "</script>";
 
     include('config.php');
 
