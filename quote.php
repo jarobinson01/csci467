@@ -69,8 +69,8 @@
             echo '<form action="delete_item.php" method="POST" style="display: inline;">';
             echo '<input type="submit" name="'.$item_id.'" value="Delete">';
             echo '</form>';
-            echo '</br>';
         }
+        echo '</br>';
     }
 
     // Add new line items
