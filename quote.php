@@ -135,7 +135,7 @@
         // vvv EDIT NOTE FORM vvv
         echo '<form id="saveNote'.$note_id.'" action="edit_note.php" method="POST" style="display: none;">';
         echo '<input placeholder="Note:" name="note" value="'.$note['text_field'].'">';
-        echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
+        echo '<input type="submit" name="'.$note_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
         echo '<button type="button" class="editNote'.$note_id.'" onclick="return showEditNote(\''.$note_id.'\')">Edit</button>';
