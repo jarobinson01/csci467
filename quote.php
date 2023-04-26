@@ -132,9 +132,9 @@
     echo '<input name="note" maxlength="250">';
     echo "<input type='submit' name='save_note' value='Save New Note'>";
     echo '</form>';
-    echo '<br><br>';
+    echo '<br><br><br><br>';
 
     echo '<form action="sanction_quote.php" method="POST">';
-    echo "<input type='submit' value='SANCTION QUOTE'>";
+    echo '<input type="submit" value="SANCTION QUOTE" style="color:red;">';
     echo '</form>';
 ?>
