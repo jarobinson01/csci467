@@ -16,8 +16,12 @@
         }
 
         function showEditNote(noteId) {
-            var editNote = document.getElementById(noteId);
+            var note = document.getElementById(noteId);
+            var editNote = document.getElementById("editNote" + noteId);
+            var saveNote = document.getElementById("editNote" + noteId);
             editNote.disabled = false;
+            editNote.style.display = "none";
+            saveNote.style.display = "inline";
         }
     </script>
 </html>
@@ -56,8 +60,8 @@
         // vvv EDIT ITEM FORM vvv
         echo '<form id="saveItem'.$item_id.'" action="edit_item.php" method="POST" style="display: none;">';
         echo ' ---- ';
-        echo '<input placeholder="Item Name" name="name" value="'.$lineItem['item_name'].'" required>';
-        echo '<input placeholder="Item Price" name="price" value='.number_format($price, 2, '.', '').' required>';
+        echo '<input placeholder="Item Name:" name="name" value="'.$lineItem['item_name'].'" required>';
+        echo '<input placeholder="Item Price:" name="price" value='.number_format($price, 2, '.', '').' required>';
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
         echo '</form>';
         // ^^^^^^^^^^^^^^^^^^^^^^
@@ -84,8 +88,8 @@
     if($quote['status'] == 'Finalized') {
         echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
         echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
-        echo '<input placeholder="Item Name" name="name" required>';
-        echo '<input placeholder="Item Price" name="price" required>';
+        echo '<input placeholder="Item Name:" name="name" required>';
+        echo '<input placeholder="Item Price:" name="price" required>';
         echo '<input type="submit" value="Add Item">';
         echo '</form>';
     }
@@ -101,7 +105,7 @@
     echo '<hr>';
     echo '<h3>Total Quote Price:      $'.number_format($quote['price'], 2, '.', '').'</h3>';
     echo '<form action="apply_discount.php" method="POST">';
-    echo '<input placeholder="Discount" name="discount" required>';
+    echo '<input placeholder="Discount"" name="discount" required>';
     echo '<input type="radio" id="percentage" name="discount_type" value="percentage" checked>';
     echo '<label for="percentage">percentage</label>';
     echo '<input type="radio" id="amount" name="discount_type" value="amount">';
@@ -128,6 +132,12 @@
         echo '<form style="display: inline;">';
         echo '<input id="'.$note_id.'" value="'.$note['text_field'].'" disabled>';
         echo '</form>';
+        // vvv EDIT NOTE FORM vvv
+        echo '<form id="saveNote'.$note_id.'" action="edit_note.php" method="POST" style="display: none;">';
+        echo '<input placeholder="Note:" name="note" value="'.$note['text_field'].'">';
+        echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
+        echo '</form>';
+        // ^^^^^^^^^^^^^^^^^^^^^^
         echo '<button type="button" id="editNote'.$note_id.'" onclick="return showEditNote(\''.$note_id.'\')">Edit</button>';
         echo '<form action="delete_note.php" method="POST" style="display: inline;">';
         echo '<input type="submit" name="'.$note_id.'" value="Delete">';
