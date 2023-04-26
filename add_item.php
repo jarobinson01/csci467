@@ -37,6 +37,7 @@
 
     $price = $quote['price'];
     $price = $price + $item_price;
+    echo "<br>".$price;
 
     $sql = "UPDATE Quote SET price=:price WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
