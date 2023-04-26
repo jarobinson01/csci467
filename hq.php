@@ -18,7 +18,7 @@
         echo '</tr>';
         echo ' ---- ';
         echo '<form action=select_quote.php method=POST style="display: inline;">';
-        echo '<input type="submit" name="'.$row['quote_id'].'" value="Sanction Quote">';
+        echo '<input type="submit" name="'.$row['quote_id'].'" value="View Quote">';
         echo '</form>';
         echo '<form action="delete_quote.php" method="POST" style="display: inline;">';
         echo '<input type="submit" name="'.$row['quote_id'].'" value="Delete Quote">';
