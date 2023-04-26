@@ -15,8 +15,13 @@
     $item = $prepared->fetch();
     $old_price = $item['price'];
 
-    // Reject negative values
+    // Reject negative and non-nunmeric values
     if($new_price < 0 || !is_numeric($new_price)) {
+        $new_price = $old_price;
+    }
+
+    // Reject values greater than max item price
+    if($new_price > 99999.99) {
         $new_price = $old_price;
     }
 
