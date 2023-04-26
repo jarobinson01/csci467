@@ -6,7 +6,7 @@
     // Get current id value for the Note that will be added
     $sql = "SELECT `AUTO_INCREMENT`
             FROM  INFORMATION_SCHEMA.TABLES
-            WHERE TABLE_SCHEMA = 'z1923374'
+            WHERE TABLE_SCHEMA = 'z1934222'
             AND   TABLE_NAME   = 'Note';";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
