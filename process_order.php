@@ -21,7 +21,9 @@
 
         $data = json_decode($result,true);
         $commission = $data['commission'];
-        echo $commission."<br>";
+
+        $commission = str_replace('%', '', $commission) / 100.00;
+        $commission = (int)$commission;
 
         echo($result."<br>");
     }
