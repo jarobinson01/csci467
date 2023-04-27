@@ -35,10 +35,6 @@
         $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
         $processed_quote = $prepared->fetch();
         print_r($processed_quote);
-        if(!$success)
-            echo "NO";
-        else
-            echo "YES";
 
         $sql = "SELECT * FROM Processed WHERE process_id = ?;";
         $prepared = $db1->prepare($sql);
@@ -47,13 +43,12 @@
 
         $sql = "UPDATE Processed SET commission_percent=? WHERE process_id=?;";
         $prepared = $db1->prepare($sql);
-        $prepared->execute(array($commission, processed['process_id']));
+        $prepared->execute(array($commission, $processed['process_id']));
 
         $sql = "SELECT * FROM Processed WHERE process_id = ?;";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute(array($processed_quote['foreign_process_id']));
-        $processed = $prepared->fetch();
-
+        $processed = $prepared->fetchAll(PDO::FETCH_ASSOC);
         print_r($processed);
 
         echo($result."<br>");
