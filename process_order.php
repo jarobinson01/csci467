@@ -18,6 +18,11 @@
 
         $context  = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
+
+        $data = json_decode($result,true);
+        $commission = $data['commission'];
+        echo $commission."<br>";
+
         echo($result."<br>");
     }
 ?>
