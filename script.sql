@@ -62,7 +62,6 @@ CREATE TABLE Quote_Item(
 INSERT INTO User (name, password, commission, address) VALUES ('brad', '1234', 1000.00, '900 Crane Dr.');
 INSERT INTO User (name, password, commission, address) VALUES ('another associate', '1234', '999.00', '123 Some St.');
 INSERT INTO User (is_associate, is_hq, name, password, commission, address) VALUES (0, 1, 'bradhq', '1234', '0', '475 Laurel St.');
-INSERT INTO User (is_associate, is_hq, name, password, commission, address) VALUES (0, 1, 'test', 'test', '0', '100 Main St.');
 INSERT INTO User (is_associate, is_admin, name, password, commission, address) VALUES (0, 1, 'bradadmin', '1234', '0', '475 Admin St.');
 
 INSERT INTO Quote (customer, price, customerEmail, status) VALUES ('18', 315, 'rottenbutwhole@gmail.com', 'Unfinalized');
