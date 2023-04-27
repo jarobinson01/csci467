@@ -48,7 +48,7 @@ CREATE TABLE Quote_Note(
 	foreign_quote_id INTEGER NOT NULL,
 	foreign_note_id INTEGER NOT NULL,
 	FOREIGN KEY(foreign_quote_id) REFERENCES Quote(quote_id),
-	FOREIGN KEY(note_id) REFERENCES Note(note_id)
+	FOREIGN KEY(foreign_note_id) REFERENCES Note(note_id)
 );
 
 CREATE TABLE Quote_Item(
