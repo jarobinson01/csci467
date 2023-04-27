@@ -17,7 +17,12 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $quote = $prepared->fetch();
 
-    process_order($_SESSION['QUOTE_ID'], $quote['customer'], $quote['price']);
+    $sql = "SELECT * FROM Create_Quote WHERE foreign_quote_id = ?;";
+    $prepared = $db1->prepare($sql);
+    $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
+    $create_quote = $prepared->fetch();
+
+    process_order($_SESSION['QUOTE_ID'], $create_quote['associate_id'], $quote['customer'], $quote['price']);
 
     // Send email with quote details
     // The message

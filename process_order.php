@@ -1,10 +1,10 @@
 <?php
-    function process_order($quote_id, /*$associate,*/ $cust_id, $price) {
+    function process_order($quote_id, $associate, $cust_id, $price) {
         $url = 'http://blitz.cs.niu.edu/PurchaseOrder/';
 
         $data = array(
             'order' => $quote_id, 
-            'associate' => 'RE-676732',
+            'associate' => $associate,
             'custid' => $cust_id, 
             'amount' => $price);
                 
