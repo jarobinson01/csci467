@@ -21,7 +21,7 @@
 
         $data = json_decode($result,true);
         $commission = $data['commission'];
-        echo $commission;
+        echo $commission."<br>";
 
         echo($result."<br>");
     }
