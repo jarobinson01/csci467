@@ -46,7 +46,7 @@
 
         $sql = "SELECT * FROM Processed WHERE process_id=?";
         $prepared = $db1->prepare($sql);
-        $prepared->execute(array($process_id));
+        $prepared->execute(array($process_id[0]));
         $p = $prepared->fetch();
         print_r($p);
 
