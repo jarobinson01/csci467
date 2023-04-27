@@ -1,7 +1,7 @@
 <?php
     function process_order($quote_id, $associate, $cust_id, $price) {
         include('config.php');
-        
+
         $url = 'http://blitz.cs.niu.edu/PurchaseOrder/';
 
         $data = array(
@@ -34,6 +34,7 @@
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
         $processed_quote = $prepared->fetch();
+        print_r($processed_quote);
 
         $sql = "SELECT * FROM Processed WHERE process_id = ?;";
         $prepared = $db1->prepare($sql);
