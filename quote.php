@@ -89,7 +89,7 @@
         echo '<button id="newItem" onclick="showAddItem()">New Item</button>';
         echo '<form id="addItem" action="add_item.php" method="POST" style="display: none;">';
         echo '<input placeholder="Item Name:" name="name" required>';
-        echo '<input type="number" step:".01" placeholder="Item Price:" name="price" min=0 required>';
+        echo '<input type="number" step=".01" placeholder="Item Price:" name="price" min=0 required>';
         echo '<input type="submit" value="Add Item">';
         echo '</form>';
     }
