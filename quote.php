@@ -124,11 +124,11 @@
     echo '<br>';
     echo '<p><strong>Notes:</p>';
     foreach($rows as $row) {
-        $sql = "SELECT * FROM Note WHERE note_id = ".$row['note_id'].";";
+        $sql = "SELECT * FROM Note WHERE note_id = ".$row['foreign_note_id'].";";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $note = $prepared->fetch();
-        $note_id = $row['note_id'];
+        $note_id = $row['foreign_note_id'];
         echo '<form style="display: inline;">';
         echo '<input class="editNote'.$note_id.'" value="'.$note['text_field'].'" disabled>';
         echo '</form>';
