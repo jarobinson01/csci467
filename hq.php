@@ -11,7 +11,14 @@
     foreach($rows as $row) {
         echo '<tr>';
         echo '<td>'.$row['quote_id'].'</td>';
-        echo '<td> -    Cutsomter '.$row['customer'].'</td>';
+        $sql = 'SELECT name FROM customers WHERE id = ' . $row['customer'];
+        $prepared = $db2->prepare($sql);
+        $success = $prepared->execute();
+
+        $customers = $prepared->fetchALL(PDO::FETCH_ASSOC);
+        foreach($customers as $cust){
+            echo '<td> -    Customer: '.$cust['name'].'</td>';
+        }
         echo '<td> ---  Price: $'.$row['price'].'</td>';
         echo '<td> ---  Customer Email: '.$row['customerEmail'].'</td>';
         echo '<td> ---  Quote Status: '.$row['status'].'</td>';
