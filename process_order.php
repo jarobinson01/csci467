@@ -30,6 +30,7 @@
 
         $commission = str_replace('%', '', $commission) / 100.00;
         $commission = (int)$commission;
+        echo $commission."<br>";
         
         // Update process comission percent
         $sql = "SELECT `AUTO_INCREMENT`
@@ -43,12 +44,6 @@
         $sql = "INSERT INTO Processed(process_name, process_day, commission_percent) VALUES (?, ?, ?);";
         $prepared = $db1->prepare($sql);
         $prepared->execute(array($name, $date, $commission));
-
-        $sql = "SELECT * FROM Processed WHERE process_id=?";
-        $prepared = $db1->prepare($sql);
-        $prepared->execute(array($process_id[0]));
-        $p = $prepared->fetch();
-        print_r($p);
 
         $sql = "INSERT INTO Processed_Quote(foreign_quote_id, foreign_process_id) VALUES (?, ?);";
         $prepared = $db1->prepare($sql);
