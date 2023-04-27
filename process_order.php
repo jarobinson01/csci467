@@ -28,8 +28,8 @@
         $date = $data['processDay'];
         $commission = $data['commission'];
 
-        $commission = str_replace('%', '', $commission) / 100.00;
-        $commission = (int)$commission;
+        $commission = str_replace('%', '', $commission);
+        $commission = (float)$commission / 100.00;
         echo $commission."<br>";
         
         // Update process comission percent

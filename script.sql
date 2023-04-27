@@ -43,7 +43,7 @@ CREATE TABLE Processed(
 	process_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	process_name CHAR(50) NOT NULL,
 	process_day DATE NOT NULL,
-	commission_percent INTEGER NOT NULL
+	commission_percent DECIMAL(4,2) NOT NULL
 );
 
 CREATE TABLE Create_Quote(
