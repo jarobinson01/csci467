@@ -30,7 +30,6 @@
 
         $commission = str_replace('%', '', $commission);
         $commission = (float)$commission / 100.00;
-        echo $commission."<br>";
         
         // Update process comission percent
         $sql = "SELECT `AUTO_INCREMENT`
