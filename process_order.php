@@ -39,7 +39,6 @@
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
         $process_id = $prepared->fetch();
-        print_r($process_id);
 
         $sql = "INSERT INTO Processed(process_name, process_day, commission_percent) VALUES (?, ?, ?);";
         $prepared = $db1->prepare($sql);
