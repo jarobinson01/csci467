@@ -18,10 +18,9 @@
 
 	// execute the SQL
 	if ($stmt->execute()){
-		echo "Success";
-	}
-	else {
-		echo "Fail";
+		//echo "Success";
+	} else {
+		//echo "Fail";
 	}
 
     if(!isset($_POST['name'])) {
