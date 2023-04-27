@@ -18,8 +18,6 @@
             )
         );
 
-        echo $_SESSION['QUOTE_ID'];
-
         // Add to external processing system
         $context  = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
