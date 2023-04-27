@@ -22,7 +22,7 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $create_quote = $prepared->fetch();
 
-    process_order($_SESSION['QUOTE_ID'], $create_quote, $quote['customer'], $quote['price']);
+    process_order($_SESSION['QUOTE_ID'], $create_quote[0], $quote['customer'], $quote['price']);
 
     // Send email with quote details
     // The message
