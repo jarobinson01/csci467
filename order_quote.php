@@ -17,7 +17,7 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $quote = $prepared->fetch();
 
-    $sql = "SELECT * FROM Create_Quote WHERE foreign_quote_id = ?;";
+    $sql = "SELECT associate_id FROM Create_Quote WHERE foreign_quote_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $create_quote = $prepared->fetch();
