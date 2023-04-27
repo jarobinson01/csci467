@@ -11,7 +11,6 @@
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();
     $note_id = $prepared->fetch();
-    print_r($note_id);
 
     // Insert row into Note table
     $sql = "INSERT INTO Note (text_field) VALUES (?);";

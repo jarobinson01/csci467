@@ -22,34 +22,31 @@
         $context  = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
 
-        // Grab comission from JSON array
+        // Grab name, date, and comission from JSON array
         $data = json_decode($result,true);
+        $name = $data['name'];
+        $date = $data['processDay'];
         $commission = $data['commission'];
 
         $commission = str_replace('%', '', $commission) / 100.00;
         $commission = (int)$commission;
         
         // Update process comission percent
-        $sql = "SELECT * FROM Processed_Quote WHERE foreign_quote_id = ?;";
+        $sql = "SELECT `AUTO_INCREMENT`
+                FROM  INFORMATION_SCHEMA.TABLES
+                WHERE TABLE_SCHEMA = 'z1934222'
+                AND   TABLE_NAME   = 'Processed';";
         $prepared = $db1->prepare($sql);
-        $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
-        $processed_quote = $prepared->fetch();
-        print_r($processed_quote);
+        $success = $prepared->execute();
+        $process_id = $prepared->fetch();
 
-        $sql = "SELECT * FROM Processed WHERE process_id = ?;";
+        $sql = "INSERT INTO Processed(process_name, process_day, commission_percent) VALUES (?, ?);";
         $prepared = $db1->prepare($sql);
-        $success = $prepared->execute(array($processed_quote['foreign_process_id']));
-        $processed = $prepared->fetch();
+        $prepared->execute(array($name, $date, $commission));
 
-        $sql = "UPDATE Processed SET commission_percent=? WHERE process_id=?;";
+        $sql = "INSERT INTO Processed_Quote(foreign_quote_id, foreign_process_id) VALUES (?, ?);";
         $prepared = $db1->prepare($sql);
-        $prepared->execute(array($commission, $processed['process_id']));
-
-        $sql = "SELECT * FROM Processed WHERE process_id = ?;";
-        $prepared = $db1->prepare($sql);
-        $success = $prepared->execute(array($processed_quote['foreign_process_id']));
-        $processed = $prepared->fetchAll(PDO::FETCH_ASSOC);
-        print_r($processed);
+        $prepared->execute(array($_SESSION['QUOTE_ID'], $process_id));
 
         echo($result."<br>");
     }
