@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     function process_order($quote_id, /*$associate,*/ $cust_id, $price) {
         $url = 'http://blitz.cs.niu.edu/PurchaseOrder/';
 
