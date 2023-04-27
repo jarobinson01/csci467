@@ -27,7 +27,6 @@
         $name = $data['name'];
         $date = $data['processDay'];
         $commission = $data['commission'];
-        print_r($data);
 
         $commission = str_replace('%', '', $commission);
         $commission = (float)$commission / 100.00;
