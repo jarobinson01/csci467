@@ -1,5 +1,7 @@
 <?php
     function process_order($quote_id, $associate, $cust_id, $price) {
+        include('config.php');
+        
         $url = 'http://blitz.cs.niu.edu/PurchaseOrder/';
 
         $data = array(
