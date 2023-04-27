@@ -48,7 +48,5 @@
         $sql = "INSERT INTO Processed_Quote(foreign_quote_id, foreign_process_id) VALUES (?, ?);";
         $prepared = $db1->prepare($sql);
         $prepared->execute(array($_SESSION['QUOTE_ID'], $process_id[0]));
-
-        echo($result."<br>");
     }
 ?>
