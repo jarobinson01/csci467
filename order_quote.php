@@ -2,20 +2,24 @@
     session_start();
     
     include('config.php');
+    include('process_order.php');
 
     echo "<h3>Email for Quote #".$_SESSION['QUOTE_ID']." sent</h3><br>";
 
-    // Update quote to sanctioned
+    // Update quote to ordered
     $sql = "UPDATE Quote SET status='Ordered' WHERE quote_id=:id;";
     $prepared = $db1->prepare($sql);
     $prepared->execute(array('id' => $_SESSION['QUOTE_ID']));
 
-    // Send email with quote details
+    // Send order to external processing system
     $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
     $quote = $prepared->fetch();
 
+    process_order($_SESSION['QUOTE_ID'], $quote['customer'], $quote['price']);
+
+    // Send email with quote details
     // The message
     $msg = "QUOTE #".$_SESSION['QUOTE_ID']."    \n";
     

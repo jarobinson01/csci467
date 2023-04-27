@@ -4,17 +4,6 @@
     include('config.php');
 
     $item_price = $_POST['price'];
-
-    // Reject negative and non-nunmeric values
-    if($item_price < 0 || !is_numeric($new_price)) {
-        header("Location: quote.php");
-    }
-
-    // Reject values greater than price max (99999.99)
-    if($new_price > 99999.99) {
-        header("Location: quote.php");
-    }
-
     $item_price = number_format($item_price, 2, '.', '');
 
     // Get current id value for the Item that will be added

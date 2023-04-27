@@ -6,11 +6,6 @@ DROP TABLE Quote;
 DROP TABLE Note;
 DROP TABLE Item;
 
-/* 
-Changed Item price type to float 
-Removed quantities
-*/
-
 CREATE TABLE User(
 	user_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	is_associate BOOLEAN DEFAULT(1),
