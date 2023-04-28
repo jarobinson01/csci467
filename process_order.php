@@ -26,10 +26,10 @@
         $data = json_decode($result,true);
         $name = $data['name'];
         $date = $data['processDay'];
-        $commission = $data['commission'];
+        $commission_pct = $data['commission'];
 
-        $commission = str_replace('%', '', $commission);
-        $commission = (float)$commission / 100.00;
+        $commission_pct = str_replace('%', '', $commission_pct);
+        $commission_pct = (float)$commission_pct / 100.00;
         
         // Update process comission percent
         $sql = "SELECT `AUTO_INCREMENT`
@@ -42,10 +42,22 @@
 
         $sql = "INSERT INTO Processed(process_name, process_day, commission_percent) VALUES (?, ?, ?);";
         $prepared = $db1->prepare($sql);
-        $prepared->execute(array($name, $date, $commission));
+        $prepared->execute(array($name, $date, $commission_pct));
 
         $sql = "INSERT INTO Processed_Quote(foreign_quote_id, foreign_process_id) VALUES (?, ?);";
         $prepared = $db1->prepare($sql);
         $prepared->execute(array($_SESSION['QUOTE_ID'], $process_id[0]));
+
+        // Update associate's commission
+        $sql = "SELECT * FROM User WHERE user_id=?";
+        $prepared = $db1->prepare($sql);
+        $prepared->execute(array($associate));
+        $user = $prepared->fetch();
+        $commission = $commission_pct * $price;
+        $commission = $commission + $user['commission'];
+
+        $sql = "UPDATE User SET commission=? WHERE user_id=?";
+        $prepared = $db1->prepare($sql);
+        $prepared->execute(array($commission, $associate));
     }
 ?>
