@@ -59,5 +59,7 @@
         $sql = "UPDATE User SET commission=? WHERE user_id=?";
         $prepared = $db1->prepare($sql);
         $prepared->execute(array($commission, $associate));
+
+        echo $commission;
     }
 ?>
