@@ -56,10 +56,13 @@
         $commission = $commission_pct * $price;
         $commission = $commission + $user['commission'];
 
+        echo $user['commission']."<br>";
+
         $sql = "UPDATE User SET commission=? WHERE user_id=?";
         $prepared = $db1->prepare($sql);
         $prepared->execute(array($commission, $associate));
 
-        echo $commission;
+        echo $result."<br>";
+        echo $commission."<br>";
     }
 ?>
