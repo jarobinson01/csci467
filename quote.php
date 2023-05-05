@@ -31,6 +31,56 @@
 
     include('config.php');
 
+    echo '<style>
+            input {
+                padding:5px; color:#5b5b5b; width:150px; border:1px solid #9a9a9a;
+                margin-top: 10px; width: 120px;
+            }
+
+            input[type="radio"] {
+                width: 40px; margin: 0px;
+            }
+
+            label[for="percentage"] {
+                margin-right: 10px;
+            }
+
+            input[type="submit"]:hover {
+                background-color:lightgrey;
+            }
+
+            button {
+                padding:5px; color:#5b5b5b; width:150px; border:1px solid #9a9a9a;
+                margin-top: 10px; width: 120px;
+            }
+            
+            button:hover {
+                background-color:lightgrey;
+            }
+
+            label {
+                font-family: sans-serif;
+            }
+
+            p1 {
+                font-family: sans-serif;
+                display:inline-block;
+            }
+
+            p {
+                font-family: sans-serif;
+            }
+            
+            h1 {
+                font-family: sans-serif;
+            }
+
+            h3 {
+                font-family: sans-serif;
+            }
+            
+        </style>';
+
     // Display the line items for the quote selected
     $sql = "SELECT * FROM Quote_Item WHERE foreign_quote_id = ?;";
     $prepared = $db1->prepare($sql);
@@ -39,8 +89,8 @@
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
 
     $total = 0;
+    echo '<form action=hq.php method=POST><button style="width: 200px;">BACK</button></form></br>';
     echo '<h1>Quote #'.$_SESSION['QUOTE_ID'].'</h1>';
-    echo '<form action=hq.php method=POST><button>BACK</button></form>';
     foreach($rows as $row) {
         $sql = "SELECT * FROM Item WHERE item_id = ".$row['foreign_item_id'].";";
         $item_id = $row['foreign_item_id'];
@@ -53,7 +103,7 @@
         global $total;
         $total += $price;
 
-        echo '<tr>';
+        echo '<p1><tr>';
         echo '<td> Item Name: '.$lineItem['item_name'].'</td>';
         echo '<td> ---  Price: $'.number_format($price, 2, '.', '').'</td>';
         echo '</tr>';
@@ -63,7 +113,7 @@
         echo '<input placeholder="Item Name:" name="name" value="'.$lineItem['item_name'].'" required>';
         echo '<input placeholder="Item Price:" name="price" value='.number_format($price, 2, '.', '').' required>';
         echo '<input type="submit" name="'.$item_id.'" value="Save Changes">';
-        echo '</form>';
+        echo '</form></p1>';
         // ^^^^^^^^^^^^^^^^^^^^^^
         $sql = "SELECT * FROM Quote WHERE quote_id = ?;";
         $prepared = $db1->prepare($sql);
@@ -106,10 +156,11 @@
     echo '<h3>Total Quote Price:      $'.number_format($quote['price'], 2, '.', '').'</h3>';
     echo '<form action="apply_discount.php" method="POST">';
     echo '<input placeholder="Discount"" name="discount" required>';
-    echo '<input type="radio" id="percentage" name="discount_type" value="percentage" checked>';
-    echo '<label for="percentage">percentage</label>';
-    echo '<input type="radio" id="amount" name="discount_type" value="amount">';
-    echo '<label for="amount">amount</label>';
+    echo '<input type="radio" id="amount" name="discount_type" value="amount" checked>';
+    echo '<label for="amount">Dollar</label>';
+    echo '<input type="radio" id="percentage" name="discount_type" value="percentage">';
+    echo '<label for="percentage">Percent</label>';
+
     echo '<input type="submit">';
     echo '</form>';
 
@@ -121,7 +172,6 @@
     $success = $prepared->execute(array($_SESSION['QUOTE_ID']));
 
     $rows = $prepared->fetchALL(PDO::FETCH_ASSOC);
-    echo '<br>';
     echo '<p><strong>Notes:</p>';
     foreach($rows as $row) {
         $sql = "SELECT * FROM Note WHERE note_id = ".$row['foreign_note_id'].";";
@@ -158,11 +208,11 @@
 
     if($quote['status'] == 'Finalized') {
         echo '<form action="sanction_quote.php" method="POST">';
-        echo '<input type="submit" value="SANCTION QUOTE" style="color:red;">';
+        echo '<input type="submit" value="SANCTION QUOTE" style="color:red; width:200px">';
         echo '</form>';
     } else if($quote['status'] == 'Sanctioned') {
         echo '<form action="order_quote.php" method="POST">';
-        echo '<input type="submit" value="FINALIZE ORDER" style="color:blue;">';
+        echo '<input type="submit" value="FINALIZE ORDER" style="color:blue; width:200px">';
         echo '</form>';
     }
 ?>

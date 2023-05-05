@@ -29,12 +29,12 @@
         $commission_pct = $data['commission'];
 
         $commission_pct = str_replace('%', '', $commission_pct);
-        $commission_pct = (float)$commission_pct / 100.00;
-        
+        $commission_pct = (float)$commission_pct/100.00;
+
         // Update process comission percent
         $sql = "SELECT `AUTO_INCREMENT`
                 FROM  INFORMATION_SCHEMA.TABLES
-                WHERE TABLE_SCHEMA = 'z1934222'
+                WHERE TABLE_SCHEMA = 'z1923374'
                 AND   TABLE_NAME   = 'Processed';";
         $prepared = $db1->prepare($sql);
         $success = $prepared->execute();
@@ -47,6 +47,7 @@
         $sql = "INSERT INTO Processed_Quote(foreign_quote_id, foreign_process_id) VALUES (?, ?);";
         $prepared = $db1->prepare($sql);
         $prepared->execute(array($_SESSION['QUOTE_ID'], $process_id[0]));
+
 
         // Update associate's commission
         $sql = "SELECT * FROM User WHERE user_id=?";

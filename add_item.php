@@ -9,7 +9,7 @@
     // Get current id value for the Item that will be added
     $sql = "SELECT `AUTO_INCREMENT`
             FROM  INFORMATION_SCHEMA.TABLES
-            WHERE TABLE_SCHEMA = 'z1934222'
+            WHERE TABLE_SCHEMA = 'z1923374'
             AND   TABLE_NAME   = 'Item';";
     $prepared = $db1->prepare($sql);
     $success = $prepared->execute();

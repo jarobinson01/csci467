@@ -3,6 +3,26 @@
     
     include('config.php');
 
+    echo '<style>
+            input {
+                padding:5px; color:#5b5b5b; width:150px; border:1px solid #9a9a9a;
+                margin-top: 10px; width: 120px;
+            }
+            
+            input[type="submit"]:hover {
+                background-color:lightgrey;
+            }
+
+            p {
+                font-family: sans-serif;
+            }
+
+            h3 {
+                font-family: sans-serif;
+            }
+            
+        </style>';
+
     echo "<h3>Email for Quote #".$_SESSION['QUOTE_ID']." sent</h3><br>";
 
     // Update quote to sanctioned
@@ -36,7 +56,7 @@
 
     $msg .= "\n\n ---- Price (with discounts applied): $".$quote['price'];
 
-    echo $msg;
+    echo '<p>' . $msg . '</p>';
 
     // use wordwrap() if lines are longer than 100 characters
     $msg = wordwrap($msg,100);
